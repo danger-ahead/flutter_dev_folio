@@ -1,0 +1,147 @@
+{
+    "name_and_link": [
+        "Shourya Shikhar Ghosh",
+        "https://github.com/danger-ahead/"
+    ],
+    "designation": [
+        "CS Undergrad.",
+        "Flutter Developer."
+    ],
+    "resume_download_link": "https://docs.google.com/document/d/1SY_wOfxoz_FmdvlrTmVvA0xDNgu2Q-71vLlkjwsRS_c/export?format=pdf",
+    "social_media": {
+        "1": [
+            "https://github.com/danger-ahead/",
+            "github"
+        ],
+        "2": [
+            "https://linkedin.com/in/shourya-shikhar/",
+            "linkedin"
+        ],
+        "3": [
+            "https://stackoverflow.com/users/10951873/shourya-shikhar",
+            "stackoverflow"
+        ],
+        "4": [
+            "https://twitter.com/___shourya___/",
+            "twitter"
+        ],
+        "5": [
+            "mailto:danger.ahead@pm.me",
+            "email"
+        ]
+    },
+    "contact_me": {
+        "location": "Kolkata, India",
+        "open_for_opportunities": "Yes",
+        "picture": "picture.png"
+    },
+    "about": "A passionate Software Developer 🚀 | Open Source enthusiast 📝 | Maintainer 👷",
+    "bio": "Sophomore CS Engineering student. I spend my leisure time contributing to open source projects and browsing Stack Overflow. I've hands-on experience in working on several projects that use Python, Node.js, Flutter, Java, etc. Most of my projects are released as open-source on GitHub.",
+    "what_i_do": {
+        "tools": [
+            "flutter.png",
+            "linux.png",
+            "c.png",
+            "cpp.png",
+            "java.png",
+            "python.png",
+            "bash.png",
+            "git.png"
+        ],
+        "proficiency": [
+            "Flutter--50",
+            "C/C++/Java/Python--60",
+            "GNU/Linux--30",
+            "Git--65"
+        ]
+    },
+    "education": {
+        "1": {
+            "institute": "RCC Institute of Information Technology",
+            "location": "Kolkata",
+            "years": "2020 - 2024",
+            "description": "B.Tech in CSE",
+            "grades": "9.53 YGPA",
+            "logo": "rcciit.png"
+        },
+        "2": {
+            "institute": "Gitaram Academy",
+            "location": "Berhampore",
+            "years": "2018 - 2020",
+            "description": "Physics, Chemistry, Mathematics, Computer Science",
+            "grades": "84%",
+            "logo": "gitaram.png"
+        },
+        "3": {
+            "institute": "The St. Xavier's School",
+            "location": "Malda",
+            "years": "2004 - 2018",
+            "description": "Secondary Education",
+            "grades": "94%",
+            "logo": "stxaviers.png"
+        }
+    },
+    "experience": {
+        "1": {
+            "name": "Google Developer Student Club",
+            "role": "Cybersecurity core member",
+            "period": "September, 2021 - Present",
+            "description": "Helped in organizing and conducting technical workshops, and informative webinars for community members.",
+            "image_name": "GDSC.png"
+        },
+        "2": {
+            "name": "RccTechz - RCCIIT Tech Chapter",
+            "role": "Member",
+            "period": "March, 2021 - Present",
+            "description": "Official Tech chapter of RCCIIT, RCCTechz. Contributed to Club activities, helped other members with projects and helped coordinate workshops.",
+            "image_name": "rcctechz.png"
+        },
+        "3": {
+            "name": "Open Source",
+            "role": "Contributor",
+            "period": "December, 2020 - Present",
+            "description": "Completed Hacktoberfest'21 with 6 merged pull requests.",
+            "image_name": "opensource.png"
+        }
+    },
+    "projects": {
+        "1": {
+            "name": "flutter_dev_folio",
+            "tech_stack_used": "Flutter",
+            "description": "Minimal, Beautiful and responsive portfolio site template",
+            "general_or_github_link": "https://github.com/danger-ahead/flutter_dev_folio"
+        },
+        "2": {
+            "name": "roBOT - Discord bot",
+            "tech_stack_used": "Python, MongoDB, REST APIs",
+            "description": "Bot with administrative commands (for kick, ban, mute, etc) and other fun commands (for memes, movies, jokes, etc).",
+            "general_or_github_link": "https://github.com/danger-ahead/roBOT"
+        },
+        "3": {
+            "name": "cinephilic",
+            "tech_stack_used": "HTML, CS, JS",
+            "description": "A chrome extension for showing the current trending movies in new tab.",
+            "general_or_github_link": "https://github.com/danger-ahead/cinephilic"
+        },
+        "4": {
+            "name": "Dictionary App",
+            "tech_stack_used": "Flutter, SQLite, REST APIs",
+            "description": "Multi-language cross platform dictionary app with support for audio pronunciation (English only).",
+            "general_or_github_link": "https://github.com/danger-ahead/flutter_dictionary"
+        }
+    },
+    "achievements": {
+        "1": {
+            "description": "Worked in a team (Quasar) at HackNPitch’21 (hackathon organised by JU E-Cell ) and ranked in the top 6 (earned the special mention tag) among 50+ other teams across India.",
+            "link": "https://www.linkedin.com/posts/juecell_hacknpitch-include-hackathon-activity-6849231722333249536-qqw2"
+        },
+        "2": {
+            "description": "Completed 30 Days of Google Cloud '21.\n- Completed Cloud Engineering Track\n- Completed Data Science & Machine Learning Track",
+            "link": "https://www.qwiklabs.com/public_profiles/d317f0a6-63b7-4c9f-be77-066e75ba3c6a"
+        },
+        "3": {
+            "description": "Completed Hacktoberfest '21 with 6 merged PRs.",
+            "link": "https://www.linkedin.com/posts/shourya-shikhar_hacktoberfest2021-hacktoberfest-opensource-activity-6857565719031361536-OpX8"
+        }
+    }
+}

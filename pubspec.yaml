@@ -1,0 +1,50 @@
+name: flutter_dev_folio
+description: portfolio
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.13.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: SourceCodePro
+      fonts:
+        - asset: assets/fonts/SourceCodePro-SemiBold.ttf
+    - family: FjallaOne
+      fonts:
+        - asset: assets/fonts/FjallaOne-Regular.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+
+  assets:
+    - assets/home/
+    - assets/home/constant/
+    - assets/what_i_do/
+    - assets/what_i_do/constant/
+    - assets/experience/
+    - assets/experience/constant/
+    - assets/contact_me/
+    - assets/contact_me/constant/
+    - assets/education/
+    - assets/education/constant/
+    - assets/projects/
+    - assets/projects/constant/
+    - assets/achievements/
+    - assets/portfolio.json
+    - dotenv

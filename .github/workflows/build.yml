@@ -1,0 +1,72 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check if dotenv exists
+        run: |
+          if [[ -f dotenv ]]; then
+            echo "Already present, ignoring."
+          else
+            echo "" > dotenv
+          fi
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run analyze
+        run: flutter analyze .
+
+      - name: Build release
+        run: flutter build web --release
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
+
+  deploy-build:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the repoitory
+        uses: actions/checkout@v2
+        with:
+          ref: master-deploy
+
+      - name: Configure git
+        run: |
+          git config --global user.email ${GITHUB_ACTOR}@gmail.com
+          git config --global user.name ${GITHUB_ACTOR}
+
+      - name: Download website build
+        uses: actions/download-artifact@v1
+        with:
+          name: build
+          path: build
+
+      - name: Commit and Push
+        run: |
+          if [ $(git status --porcelain=v1 2>/dev/null | wc -l) != "0" ] ; then
+            git add -f .
+            git commit -m "gh-actions deployed a new build"
+            git push --force https://github.com/${GITHUB_REPOSITORY}.git HEAD:master-deploy
+          fi
