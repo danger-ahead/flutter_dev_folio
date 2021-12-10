@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
+//checking if dotenv starts with "ghp"
+//https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/#:~:text=ghp_%20for%20Personal%20Access%20Tokens
+
 Future<List<List<String>>> projects() async {
   String loadJSON = await rootBundle.loadString('assets/portfolio.json');
   var response = jsonDecode(loadJSON);
@@ -22,7 +25,7 @@ Future<List<String>> starsAndForks(String repo) async {
   String loadDotenv = await rootBundle.loadString('dotenv');
   List<String> words = repo.split("/");
   var response;
-  if (loadDotenv != '') {
+  if (loadDotenv.startsWith("ghp")) {
     response = await http.get(
       Uri.https(
           'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),
@@ -50,7 +53,7 @@ Future<List<String>> github(String repo) async {
   String loadDotenv = await rootBundle.loadString('dotenv');
   List<String> words = repo.split("/");
   var response;
-  if (loadDotenv != '') {
+  if (loadDotenv.startsWith("ghp")) {
     response = await http.get(
       Uri.https(
           'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),

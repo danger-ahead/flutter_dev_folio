@@ -33,7 +33,7 @@ jobs:
         run: flutter analyze .
 
       - name: Build release
-        run: flutter build web --release
+        run: flutter build web --web-renderer html --release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v1

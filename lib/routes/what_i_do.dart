@@ -39,7 +39,7 @@ class WhatIdo extends StatelessWidget {
                               Padding(
                                 padding:
                                     const EdgeInsets.fromLTRB(15, 10, 15, 20),
-                                child: text("💪 I have a good proficiency in:",
+                                child: text("⚡ I have a good proficiency in:",
                                     15, Theme.of(context).primaryColorLight),
                               ),
                               Padding(
@@ -125,7 +125,7 @@ class WhatIdo extends StatelessWidget {
                               Padding(
                                 padding:
                                     const EdgeInsets.fromLTRB(70, 10, 70, 20),
-                                child: text("💪 I have a good proficiency in:",
+                                child: text("⚡ I have a good proficiency in:",
                                     35, Theme.of(context).primaryColorLight),
                               ),
                               Padding(
