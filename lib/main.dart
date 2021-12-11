@@ -6,10 +6,12 @@ import 'package:flutter_dev_folio/routes/home.dart';
 import 'package:flutter_dev_folio/routes/experience.dart';
 import 'package:flutter_dev_folio/routes/projects.dart';
 import 'package:flutter_dev_folio/routes/achievements.dart';
+import 'package:flutter_dev_folio/src/configure_web.dart';
 import 'package:flutter_dev_folio/src/theme/custom_theme.dart';
 import 'package:flutter_dev_folio/src/theme/config.dart';
 
 void main() {
+  configureApp();
   runApp(MyApp());
 }
 

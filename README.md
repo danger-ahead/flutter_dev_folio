@@ -170,7 +170,7 @@ flutter_dev_folio uses the GitHub API for fetching details from GitHub. The API 
   - pubspec.yaml
   - README.md
 ```
-Then paste the PERSONAL ACCESS TOKEN and run `flutter build web --web-renderer canvaskit --release`. This will create the `build/` directory containing all your build files. You can now simply deploy the `build/web/`.
+Then paste the PERSONAL ACCESS TOKEN and run `flutter build web --web-renderer html --release`. This will create the `build/` directory containing all your build files. You can now simply deploy the `build/web/`.
 
 **Or,** You can create an empty `dotenv` file and run (and deploy) the project. *Caution: This will limit the GitHub API to 60 requests/hour.*
 
