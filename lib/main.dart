@@ -7,10 +7,11 @@ import 'package:flutter_dev_folio/routes/experience.dart';
 import 'package:flutter_dev_folio/routes/projects.dart';
 import 'package:flutter_dev_folio/routes/achievements.dart';
 import 'package:flutter_dev_folio/src/configure_web.dart';
+import 'package:flutter_dev_folio/src/json_service.dart';
 import 'package:flutter_dev_folio/src/theme/custom_theme.dart';
 import 'package:flutter_dev_folio/src/theme/config.dart';
 
-void main() {
+void main() async {
   configureApp();
   runApp(MyApp());
 }
@@ -26,6 +27,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     currentTheme.addListener(() {
+      setState(() {});
+    });
+    jsonService.init();
+    jsonService.addListener(() {
       setState(() {});
     });
   }

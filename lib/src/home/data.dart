@@ -1,27 +1,23 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
+import 'package:flutter_dev_folio/src/json_service.dart';
 
 Future<String> about() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   return response["about"];
 }
 
 Future<String> resume() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   return response["resume_download_link"];
 }
 
 Future<String> name() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   return response["name_and_link"][0];
 }
 
 Future<List<String>> designation() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   List<String> result = [];
 
   for (int i = 0; i < response["designation"].toList().length; i++)
@@ -30,8 +26,7 @@ Future<List<String>> designation() async {
 }
 
 Future<List<List<String>>> socialMedia() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   List<List<String>> result = [];
 
   List<String> temp = [];

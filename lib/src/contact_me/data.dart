@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
+import 'package:flutter_dev_folio/src/json_service.dart';
 
 Future<List<String>> contactMe() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
 
   List<String> contactMeDetails = [];
 
@@ -14,13 +13,11 @@ Future<List<String>> contactMe() async {
 }
 
 Future<List<String>> nameAndLink() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   return [response["name_and_link"][0], response["name_and_link"][1]];
 }
 
 Future<String> bio() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
   return response["bio"];
 }

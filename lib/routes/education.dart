@@ -26,7 +26,7 @@ class Education extends StatelessWidget {
                   if (snapshot.data == null)
                     return Center();
                   else {
-                    var data = (snapshot.data as List<List<String>>).toList();
+                    var data = (snapshot.data as List<List<String>>);
                     return LayoutBuilder(builder: (context, constraints) {
                       if (constraints.maxWidth < 1000) {
                         return SingleChildScrollView(

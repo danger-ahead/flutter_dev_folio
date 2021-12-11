@@ -1,4 +1,4 @@
-import 'package:flutter_dev_folio/routes/education.dart';
+import 'package:flutter_dev_folio/src/education/education_button.dart';
 import 'package:flutter_dev_folio/src/home/about.dart';
 import 'package:flutter_dev_folio/src/home/resume.dart';
 import 'package:flutter_dev_folio/src/home/social_media_bar.dart';
@@ -8,7 +8,6 @@ import 'package:flutter_dev_folio/src/home/designation.dart';
 import 'package:flutter_dev_folio/src/home/introduction.dart';
 import 'package:flutter_dev_folio/src/home/my_name.dart';
 import 'package:flutter_dev_folio/src/home/nav_bar.dart';
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -27,17 +26,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth < 1000) {
           return SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: EdgeInsets.symmetric(horizontal: width * 0.024),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
+                    padding: EdgeInsets.only(top: height * 0.012),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -53,8 +54,9 @@ class _HomePageState extends State<HomePage> {
                                 Theme.of(context).primaryColor),
                           ),
                           onPressed: () {
-                            menuVisible = !menuVisible;
-                            setState(() {});
+                            setState(() {
+                              menuVisible = !menuVisible;
+                            });
                           },
                           child: menuVisible
                               ? Icon(Icons.menu_open)
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   Visibility(
                     visible: menuVisible,
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
+                      padding: EdgeInsets.only(bottom: height * 0.029),
                       child: NavBar(
                         isDarkModeBtnVisible: false,
                       ),
@@ -81,21 +83,14 @@ class _HomePageState extends State<HomePage> {
                   Designation(isMobile: true, context: context),
                   SocialMediaBar(),
                   About(fontSize: 24),
-                  FittedBox(
-                    fit: BoxFit.contain,
-                    child: Row(
+                  Padding(
+                    padding: EdgeInsets.only(bottom: height * 0.029),
+                    child: OverflowBar(
                       children: [
-                        Resume(),
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(left: 10.0, bottom: 20.0),
-                          child: TextButton(
-                            onPressed: () =>
-                                Navigator.pushNamed(context, Education.route),
-                            child: text('EDUCATION', 20,
-                                Theme.of(context).primaryColor),
-                          ),
+                        Resume(
+                          width: 0,
                         ),
+                        EducationButton(),
                       ],
                     ),
                   ),
@@ -109,13 +104,13 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 80.0),
+                  padding: EdgeInsets.only(bottom: height * 0.1),
                   child: NavBar(
                     isDarkModeBtnVisible: true,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  padding: EdgeInsets.symmetric(horizontal: width * 0.032),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -129,20 +124,16 @@ class _HomePageState extends State<HomePage> {
                       Designation(isMobile: false, context: context),
                       SocialMediaBar(),
                       About(fontSize: 30),
-                      Row(
-                        children: [
-                          Resume(),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 30.0, bottom: 20.0),
-                            child: TextButton(
-                              onPressed: () =>
-                                  Navigator.pushNamed(context, Education.route),
-                              child: text('EDUCATION', 20,
-                                  Theme.of(context).primaryColor),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: height * 0.026),
+                        child: Row(
+                          children: [
+                            Resume(
+                              width: width,
                             ),
-                          ),
-                        ],
+                            EducationButton(),
+                          ],
+                        ),
                       ),
                     ],
                   ),

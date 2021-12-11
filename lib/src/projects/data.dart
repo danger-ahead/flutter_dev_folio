@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_dev_folio/src/json_service.dart';
 import 'package:http/http.dart' as http;
 
 //checking if dotenv starts with "ghp"
 //https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/#:~:text=ghp_%20for%20Personal%20Access%20Tokens
 
 Future<List<List<String>>> projects() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  // String loadJSON = await rootBundle.loadString('assets/portfolio.json');
+  var response = jsonDecode(JSONService.json);
 
   List<List<String>> totalProjects = [];
   List<String> temp = [];

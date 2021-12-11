@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
+import 'package:flutter_dev_folio/src/json_service.dart';
 
 Future<List<List<String>>> achievements() async {
-  String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(loadJSON);
+  var response = jsonDecode(JSONService.json);
 
   List<List<String>> totalAchievements = [];
   List<String> temp = [];
