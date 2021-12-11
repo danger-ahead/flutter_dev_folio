@@ -1,37 +1,29 @@
 {
     "name_and_link": [
-        "Shourya Shikhar Ghosh",
-        "https://github.com/danger-ahead/"
+        "Ghost",
+        "https://github.com/ThatGhostYT/"
     ],
     "designation": [
-        "CS Undergrad.",
-        "Flutter Developer."
+        "Fullstack Developer",
+        "Website Developer"
     ],
     "resume_download_link": "https://docs.google.com/document/d/1SY_wOfxoz_FmdvlrTmVvA0xDNgu2Q-71vLlkjwsRS_c/export?format=pdf",
     "social_media": {
         "1": [
-            "https://github.com/danger-ahead/",
+            "https://github.com/ThatGhostYT/",
             "github"
         ],
         "2": [
-            "https://linkedin.com/in/shourya-shikhar/",
-            "linkedin"
-        ],
-        "3": [
-            "https://stackoverflow.com/users/10951873/shourya-shikhar",
+            "https://stackoverflow.com/users/16597257/that-ghost",
             "stackoverflow"
         ],
-        "4": [
-            "https://twitter.com/___shourya___/",
-            "twitter"
-        ],
-        "5": [
-            "mailto:danger.ahead@pm.me",
+        "3": [
+            "mailto:turtleboards941@gmail.com",
             "email"
         ]
     },
     "contact_me": {
-        "location": "Kolkata, India",
+        "location": "Toronto, Canada",
         "open_for_opportunities": "Yes",
         "picture": "picture.png"
     },
