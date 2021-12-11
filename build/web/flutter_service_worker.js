@@ -9,9 +9,9 @@ const RESOURCES = {
 "canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498",
 "version.json": "db8990b8a733cdd52065ba1549ba9aa5",
 "manifest.json": "6cbe41637e331ef626d9a50c26f95fc1",
-"main.dart.js": "4038baf14323eac0e98a7f4a3a4d9f43",
-"index.html": "42da0d3b77625877653af82adbd1965d",
-"/": "42da0d3b77625877653af82adbd1965d",
+"main.dart.js": "16c5f356b2a1c679573351c4321fda45",
+"index.html": "a0f98d6e97686af4d653b556b0203f86",
+"/": "a0f98d6e97686af4d653b556b0203f86",
 "assets/FontManifest.json": "f0f4be009d67b49f6afb66286f706923",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/AssetManifest.json": "c5737c38ca7ae4a51e12338623a70f7a",
@@ -53,7 +53,7 @@ const RESOURCES = {
 "assets/assets/education/stxaviers.png": "54936ceae932c0337c5c4096d2bf6037",
 "assets/assets/education/rcciit.png": "e549f157d5783656caeb1f605259b897",
 "assets/assets/education/constant/education.png": "1ebc9c3cdde631ddd2f356001c79eceb",
-"assets/NOTICES": "73a8a6a2529676c33bbddcdd442691e8",
+"assets/NOTICES": "d0e4c4b36e5682c47f59bbda71018c81",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "style.css": "fc26b76d624ec07f7de33b247ded4e9c"
 };
