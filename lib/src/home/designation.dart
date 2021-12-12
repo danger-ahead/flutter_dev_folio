@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dev_folio/src/custom/text_style.dart';
 
 class Designation extends StatelessWidget {
-  const Designation({
+  Designation({
     Key? key,
     required this.isMobile,
     required this.context,
@@ -11,31 +11,22 @@ class Designation extends StatelessWidget {
 
   final bool isMobile;
   final BuildContext context;
+  final data = designation();
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: designation(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          var data = snapshot.data as List<String>;
-          if (data.length == 0 && data[0] == '') return Center();
-          return Row(
-            children: [
-              Icon(
-                Icons.play_arrow_rounded,
-                color: Theme.of(context).primaryColorLight,
-                size: isMobile ? 50 : 60,
-              ),
-              TextSwapController(
-                data: data,
-                isMobile: isMobile,
-              ),
-            ],
-          );
-        }
-        return Center();
-      },
+    return Row(
+      children: [
+        Icon(
+          Icons.play_arrow_rounded,
+          color: Theme.of(context).primaryColorLight,
+          size: isMobile ? 50 : 60,
+        ),
+        TextSwapController(
+          data: data,
+          isMobile: isMobile,
+        ),
+      ],
     );
   }
 }

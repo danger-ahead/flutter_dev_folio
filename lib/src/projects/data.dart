@@ -6,14 +6,11 @@ import 'package:http/http.dart' as http;
 //checking if dotenv starts with "ghp"
 //https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/#:~:text=ghp_%20for%20Personal%20Access%20Tokens
 
-Future<List<List<String>>> projects() async {
-  // String loadJSON = await rootBundle.loadString('assets/portfolio.json');
-  var response = jsonDecode(JSONService.json);
-
+List<List<String>> projects() {
   List<List<String>> totalProjects = [];
   List<String> temp = [];
 
-  for (var k in response["projects"].values) {
+  for (var k in JSONService.response["projects"].values) {
     for (var l in k.values) temp.add(l.toString());
 
     totalProjects.add([...temp]);

@@ -1,23 +1,21 @@
-import 'dart:convert';
 import 'package:flutter_dev_folio/src/json_service.dart';
 
-Future<List<String>> contactMe() async {
-  var response = jsonDecode(JSONService.json);
-
+List<String> contactMe() {
   List<String> contactMeDetails = [];
 
-  for (var k in response["contact_me"].values)
+  for (var k in JSONService.response["contact_me"].values)
     contactMeDetails.add(k.toString());
 
   return contactMeDetails;
 }
 
-Future<List<String>> nameAndLink() async {
-  var response = jsonDecode(JSONService.json);
-  return [response["name_and_link"][0], response["name_and_link"][1]];
+List<String> nameAndLink() {
+  return [
+    JSONService.response["name_and_link"][0],
+    JSONService.response["name_and_link"][1]
+  ];
 }
 
-Future<String> bio() async {
-  var response = jsonDecode(JSONService.json);
-  return response["bio"];
+String bio() {
+  return JSONService.response["bio"];
 }

@@ -1,4 +1,4 @@
-import 'package:flutter_dev_folio/src/education/education_button.dart';
+import 'package:flutter_dev_folio/src/contact_me/contact_me_button.dart';
 import 'package:flutter_dev_folio/src/home/about.dart';
 import 'package:flutter_dev_folio/src/home/resume.dart';
 import 'package:flutter_dev_folio/src/home/social_media_bar.dart';
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                         Resume(
                           width: 0,
                         ),
-                        EducationButton(),
+                        ContactMeButton(),
                       ],
                     ),
                   ),
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                             Resume(
                               width: width,
                             ),
-                            EducationButton(),
+                            ContactMeButton(),
                           ],
                         ),
                       ),

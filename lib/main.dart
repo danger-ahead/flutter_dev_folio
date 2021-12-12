@@ -37,21 +37,23 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Meet Shourya',
-      theme: CustomTheme.lightTheme,
-      darkTheme: CustomTheme.darkTheme,
-      themeMode: currentTheme.currentTheme,
-      routes: {
-        '/': (context) => HomePage(),
-        '/experience': (context) => Experience(),
-        '/projects': (context) => Projects(),
-        '/achievements': (context) => Achievements(),
-        '/what_i_do': (context) => WhatIdo(),
-        '/contact_me': (context) => ContactMe(),
-        '/education': (context) => Education(),
-      },
-    );
+    return JSONService.hasLoaded == true
+        ? MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Meet Shourya',
+            theme: CustomTheme.lightTheme,
+            darkTheme: CustomTheme.darkTheme,
+            themeMode: currentTheme.currentTheme,
+            routes: {
+              '/': (context) => HomePage(),
+              '/experience': (context) => Experience(),
+              '/projects': (context) => Projects(),
+              '/achievements': (context) => Achievements(),
+              '/what_i_do': (context) => WhatIdo(),
+              '/contact_me': (context) => ContactMe(),
+              '/education': (context) => Education(),
+            },
+          )
+        : Center(child: CircularProgressIndicator());
   }
 }

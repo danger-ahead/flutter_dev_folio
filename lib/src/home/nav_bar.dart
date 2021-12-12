@@ -1,4 +1,4 @@
-import 'package:flutter_dev_folio/routes/contact_me.dart';
+import 'package:flutter_dev_folio/routes/education.dart';
 import 'package:flutter_dev_folio/routes/what_i_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_folio/src/theme/theme_button.dart';
@@ -27,10 +27,10 @@ class _NavBarState extends State<NavBar> {
     return ButtonBar(
       children: [
         navBarBtn(context, WhatIdo.route, ' 01. ', 'What I Do'),
-        navBarBtn(context, Experience.route, ' 02. ', 'Experience'),
-        navBarBtn(context, Projects.route, ' 03. ', 'Projects'),
-        navBarBtn(context, Achievements.route, ' 04. ', 'Achievements'),
-        navBarBtn(context, ContactMe.route, ' 05. ', 'Contact Me'),
+        navBarBtn(context, Education.route, ' 02. ', 'Education'),
+        navBarBtn(context, Experience.route, ' 03. ', 'Experience'),
+        navBarBtn(context, Projects.route, ' 04. ', 'Projects'),
+        navBarBtn(context, Achievements.route, ' 05. ', 'Achievements'),
         Visibility(
           visible: widget.isDarkModeBtnVisible,
           child: ThemeButton(),
