@@ -8,22 +8,54 @@ import 'package:flutter_dev_folio/routes/common_nav_bar.dart';
 import 'package:flutter_dev_folio/src/contact_me/data.dart';
 import 'package:flutter_dev_folio/src/custom/text_style.dart';
 
-class ContactMe extends StatelessWidget {
+class ContactMe extends StatefulWidget {
   static const String route = '/contact_me';
   ContactMe({Key? key}) : super(key: key);
 
+  _ContactMeState createState() => _ContactMeState();
+}
+
+class _ContactMeState extends State<ContactMe> {
   final data = contactMe();
   final getNameAndLink = nameAndLink();
+  bool isHover = false;
 
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    Widget imageWidget(double scale) {
+      return AnimatedContainer(
+        duration: Duration(milliseconds: 200),
+        padding: EdgeInsets.only(
+            top: (isHover) ? height * 0.005 : height * 0.01,
+            bottom: !(isHover) ? height * 0.005 : height * 0.01),
+        child: InkWell(
+          onTap: () {},
+          onHover: (value) {
+            setState(() {
+              isHover = value;
+            });
+          },
+          hoverColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          child: ClipOval(
+              child: data[2] != ''
+                  ? Image.asset('assets/contact_me/' + data[2], scale: scale)
+                  : Image.asset('assets/contact_me/constant/picture.png',
+                      scale: scale)),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Column(
         children: [
           CommonNavBar(
             height: height,
-            route: route,
+            route: ContactMe.route,
           ),
           Expanded(
             child: LayoutBuilder(builder: (context, constraints) {
@@ -45,14 +77,7 @@ class ContactMe extends StatelessWidget {
                                       width: 7,
                                       color: CustomTheme.darkTheme.cardColor,
                                     )),
-                                child: ClipOval(
-                                    child: data[2] != ''
-                                        ? Image.asset(
-                                            'assets/contact_me/' + data[2],
-                                            scale: 2.7)
-                                        : Image.asset(
-                                            'assets/contact_me/constant/picture.png',
-                                            scale: 2.7))),
+                                child: imageWidget(2.7)),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -97,7 +122,9 @@ class ContactMe extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 13.0),
-                            child: SocialMediaBar(),
+                            child: SocialMediaBar(
+                              height: height,
+                            ),
                           ),
                         ],
                       ),
@@ -165,15 +192,10 @@ class ContactMe extends StatelessWidget {
                                       width: 7,
                                       color: CustomTheme.darkTheme.cardColor,
                                     )),
-                                child: ClipOval(
-                                    child: data[2] != ''
-                                        ? Image.asset(
-                                            'assets/contact_me/' + data[2],
-                                            scale: 2.5)
-                                        : Image.asset(
-                                            'assets/contact_me/constant/picture.png',
-                                            scale: 2.5))),
-                            SocialMediaBar(),
+                                child: imageWidget(2.5)),
+                            SocialMediaBar(
+                              height: height,
+                            ),
                           ],
                         ),
                       ],

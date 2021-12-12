@@ -81,7 +81,9 @@ class _HomePageState extends State<HomePage> {
                     context: context,
                   ),
                   Designation(isMobile: true, context: context),
-                  SocialMediaBar(),
+                  SocialMediaBar(
+                    height: height,
+                  ),
                   About(fontSize: 24),
                   Padding(
                     padding: EdgeInsets.only(bottom: height * 0.029),
@@ -122,7 +124,9 @@ class _HomePageState extends State<HomePage> {
                             context: context,
                           )),
                       Designation(isMobile: false, context: context),
-                      SocialMediaBar(),
+                      SocialMediaBar(
+                        height: height,
+                      ),
                       About(fontSize: 30),
                       Padding(
                         padding: EdgeInsets.only(bottom: height * 0.026),

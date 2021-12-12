@@ -3,7 +3,7 @@ import 'package:flutter_dev_folio/src/htmlOpenLink.dart';
 import 'package:flutter_dev_folio/src/theme/config.dart';
 import 'package:flutter/material.dart';
 
-class AchievementsCard extends StatelessWidget {
+class AchievementsCard extends StatefulWidget {
   const AchievementsCard(
       {Key? key,
       required this.desc,
@@ -16,38 +16,66 @@ class AchievementsCard extends StatelessWidget {
   final double height, width;
   final String desc, link;
   final bool isMobile;
+  _AchievementsCardState createState() => _AchievementsCardState();
+}
+
+class _AchievementsCardState extends State<AchievementsCard> {
+  bool isHover = false;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => htmlOpenLink(link),
-      child: Container(
-        alignment: Alignment.topCenter,
-        padding: EdgeInsets.only(
-            top: height * 0.04,
-            left: width * 0.015,
-            right: width * 0.015,
-            bottom: height * 0.04),
-        width: !isMobile ? width * 0.28 : width,
-        height: !isMobile ? height * 0.35 : height / 2.25,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10.0,
-              spreadRadius: 0.0,
-              offset: Offset(8, 12),
-            )
-          ],
-          color: currentTheme.currentTheme == ThemeMode.dark
-              ? Theme.of(context).cardColor
-              : Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(
-            5.0,
+    return AnimatedContainer(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: isHover ? Colors.black12 : Colors.black45,
+            blurRadius: 10.0,
+            spreadRadius: 0.0,
+            offset: Offset(8, 12),
+          )
+        ],
+      ),
+      duration: Duration(milliseconds: 200),
+      padding: EdgeInsets.only(
+          top: (isHover) ? widget.height * 0.005 : widget.height * 0.01,
+          bottom: !(isHover) ? widget.height * 0.005 : widget.height * 0.01),
+      child: InkWell(
+        onHover: (value) {
+          setState(() {
+            isHover = value;
+          });
+        },
+        onTap: () => htmlOpenLink(widget.link),
+        child: Container(
+          alignment: Alignment.topCenter,
+          padding: EdgeInsets.only(
+              top: widget.height * 0.04,
+              left: widget.width * 0.015,
+              right: widget.width * 0.015,
+              bottom: widget.height * 0.04),
+          width: !widget.isMobile ? widget.width * 0.28 : widget.width,
+          height:
+              !widget.isMobile ? widget.height * 0.35 : widget.height / 2.25,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: isHover ? Colors.black12 : Colors.black45,
+                blurRadius: 10.0,
+                spreadRadius: 0.0,
+                offset: Offset(8, 12),
+              )
+            ],
+            color: currentTheme.currentTheme == ThemeMode.dark
+                ? Theme.of(context).cardColor
+                : Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(
+              5.0,
+            ),
           ),
+          child: Center(
+              child: SingleChildScrollView(
+                  child: text(widget.desc, 18, Colors.white))),
         ),
-        child: Center(
-            child: SingleChildScrollView(child: text(desc, 18, Colors.white))),
       ),
     );
   }
