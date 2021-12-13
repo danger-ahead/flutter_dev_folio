@@ -145,7 +145,7 @@ git clone https://github.com/danger-ahead/flutter_dev_folio
 cd flutter_dev_folio
 
 # Create dotenv. No need to add any token now, GitHub API serves requests without authorisation.
-echo "" > dotenv
+: > dotenv
 
 # Get dependencies
 flutter pub get
