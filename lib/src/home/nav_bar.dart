@@ -26,11 +26,31 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return ButtonBar(
       children: [
-        navBarBtn(context, WhatIdo.route, ' 01. ', 'What I Do'),
-        navBarBtn(context, Education.route, ' 02. ', 'Education'),
-        navBarBtn(context, Experience.route, ' 03. ', 'Experience'),
-        navBarBtn(context, Projects.route, ' 04. ', 'Projects'),
-        navBarBtn(context, Achievements.route, ' 05. ', 'Achievements'),
+        UnderlinedButton(
+            context: context,
+            routeName: WhatIdo.route,
+            btnNumber: ' 01. ',
+            btnName: 'What I Do'),
+        UnderlinedButton(
+            context: context,
+            routeName: Education.route,
+            btnNumber: ' 02. ',
+            btnName: 'Education'),
+        UnderlinedButton(
+            context: context,
+            routeName: Experience.route,
+            btnNumber: ' 03. ',
+            btnName: 'Experience'),
+        UnderlinedButton(
+            context: context,
+            routeName: Projects.route,
+            btnNumber: ' 04. ',
+            btnName: 'Projects'),
+        UnderlinedButton(
+            context: context,
+            routeName: Achievements.route,
+            btnNumber: ' 05. ',
+            btnName: 'Achievements'),
         Visibility(
           visible: widget.isDarkModeBtnVisible,
           child: ThemeButton(),
