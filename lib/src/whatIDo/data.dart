@@ -1,17 +1,18 @@
-import 'package:flutter_dev_folio/src/json_service.dart';
+import '../json_service.dart';
 
 List<List<String>> whatIdo() {
-  var proficiency = JSONService.response["what_i_do"]["proficiency"].toList();
-  var tools = JSONService.response["what_i_do"]["tools"].toList();
+  final proficiency = JSONService.response['what_i_do']['proficiency'].toList();
+  final tools = JSONService.response['what_i_do']['tools'].toList();
 
-  List<String> totalProficiency = [];
-  List<String> totalTools = [];
-  List<List<String>> total = [];
+  final List<String> totalProficiency = [];
+  final List<String> totalTools = [];
+  final List<List<String>> total = [];
 
-  for (int k = 0; k < proficiency.length; k++)
-    totalProficiency.add(proficiency[k]);
+  for (int k = 0; k < int.parse(proficiency.length.toString()); k++)
+    totalProficiency.add(proficiency[k].toString());
 
-  for (int k = 0; k < tools.length; k++) totalTools.add(tools[k]);
+  for (int k = 0; k < int.parse(tools.length.toString()); k++)
+    totalTools.add(tools[k].toString());
 
   total.add(totalProficiency);
   total.add(totalTools);

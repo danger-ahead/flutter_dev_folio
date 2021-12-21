@@ -1,11 +1,11 @@
-import 'package:flutter_dev_folio/src/json_service.dart';
+import '../json_service.dart';
 
 List<List<String>> achievements() {
-  List<List<String>> totalAchievements = [];
-  List<String> temp = [];
+  final List<List<String>> totalAchievements = [];
+  final List<String> temp = [];
 
-  for (var k in JSONService.response["achievements"].values) {
-    for (var l in k.values) temp.add(l.toString());
+  for (final k in JSONService.response['achievements'].values) {
+    for (final l in k.values) temp.add(l.toString());
 
     totalAchievements.add([...temp]);
     temp.clear();

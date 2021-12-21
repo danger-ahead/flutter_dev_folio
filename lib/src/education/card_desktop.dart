@@ -1,6 +1,7 @@
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
-import 'package:flutter_dev_folio/src/theme/config.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/text_style.dart';
+import '../theme/config.dart';
 
 class EducationDesktopCard extends StatefulWidget {
   const EducationDesktopCard(
@@ -17,6 +18,7 @@ class EducationDesktopCard extends StatefulWidget {
 
   final double height, width;
   final String insttution, location, years, grades, desc, image;
+  @override
   _EducationDesktopCardState createState() => _EducationDesktopCardState();
 }
 
@@ -31,17 +33,16 @@ class _EducationDesktopCardState extends State<EducationDesktopCard> {
           BoxShadow(
             color: isHover ? Colors.black12 : Colors.black45,
             blurRadius: 10.0,
-            spreadRadius: 0.0,
-            offset: Offset(8, 12),
+            offset: const Offset(8, 12),
           )
         ],
       ),
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: (isHover) ? widget.height * 0.005 : widget.height * 0.01,
-          bottom: !(isHover) ? widget.height * 0.005 : widget.height * 0.01),
+          top: isHover ? widget.height * 0.005 : widget.height * 0.01,
+          bottom: !isHover ? widget.height * 0.005 : widget.height * 0.01),
       child: InkWell(
-        onHover: (value) {
+        onHover: (bool value) {
           setState(() {
             isHover = value;
           });
@@ -60,8 +61,7 @@ class _EducationDesktopCardState extends State<EducationDesktopCard> {
               BoxShadow(
                 color: isHover ? Colors.black12 : Colors.black45,
                 blurRadius: 10.0,
-                spreadRadius: 0.0,
-                offset: Offset(8, 12),
+                offset: const Offset(8, 12),
               )
             ],
             color: currentTheme.currentTheme == ThemeMode.dark
@@ -78,14 +78,13 @@ class _EducationDesktopCardState extends State<EducationDesktopCard> {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/education/' + widget.image,
+                      'assets/education/${widget.image}',
                       scale: 1.2,
                     )),
               ),
               Expanded(
                 flex: 2,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     FittedBox(
                         fit: BoxFit.cover,
@@ -102,7 +101,7 @@ class _EducationDesktopCardState extends State<EducationDesktopCard> {
                           padding: const EdgeInsets.only(bottom: 11.0),
                           child: text(
                               widget.years != ''
-                                  ? 'Years of study: ' + widget.years
+                                  ? 'Years of study: ${widget.years}'
                                   : '',
                               12,
                               Colors.white),
@@ -114,7 +113,7 @@ class _EducationDesktopCardState extends State<EducationDesktopCard> {
                         fit: BoxFit.cover,
                         child: text(
                             widget.grades != ''
-                                ? 'Grades Achieved: ' + widget.grades
+                                ? 'Grades Achieved: ${widget.grades}'
                                 : '',
                             12,
                             Colors.white)),

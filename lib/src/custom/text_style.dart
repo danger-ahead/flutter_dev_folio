@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget text(String s, double fontSize, Color color) {
-  TextStyle textStyle = TextStyle(
+  final TextStyle textStyle = TextStyle(
     fontFamily: 'Montserrat',
     letterSpacing: 2,
     fontSize: fontSize,

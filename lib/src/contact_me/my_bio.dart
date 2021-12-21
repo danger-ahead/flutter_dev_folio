@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/src/contact_me/data.dart';
+import 'data.dart';
 
 class MyBio extends StatelessWidget {
   MyBio({
@@ -8,12 +8,12 @@ class MyBio extends StatelessWidget {
   }) : super(key: key);
 
   final double fontSize;
-  final getBio = bio();
+  final String getBio = bio();
 
   @override
   Widget build(BuildContext context) {
     return (getBio == '')
-        ? Center()
+        ? const Center()
         : Padding(
             padding: const EdgeInsets.fromLTRB(12.0, 5.0, 12.0, 30.0),
             child: Column(
@@ -21,7 +21,7 @@ class MyBio extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
                   child: Text(
-                    '"' + getBio + '"',
+                    '"$getBio"',
                     style: TextStyle(
                         fontFamily: 'SourceCodePro',
                         letterSpacing: 2,

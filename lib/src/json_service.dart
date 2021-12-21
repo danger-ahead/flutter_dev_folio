@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class JSONService extends ChangeNotifier {
   static late final String json;
   static late final response;
-  static var hasLoaded = false;
+  static bool hasLoaded = false;
 
   init() async {
     json = await rootBundle.loadString('assets/portfolio.json');

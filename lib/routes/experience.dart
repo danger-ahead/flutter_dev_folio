@@ -1,30 +1,31 @@
-import 'package:flutter_dev_folio/src/experience/card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/routes/common_nav_bar.dart';
-import 'package:flutter_dev_folio/src/experience/data.dart';
+
+import '../src/experience/card.dart';
+import '../src/experience/data.dart';
+import 'common_nav_bar.dart';
 
 class Experience extends StatelessWidget {
-  static const String route = '/experience';
   Experience({Key? key}) : super(key: key);
 
-  final data = experience();
+  static const String route = '/experience';
+  final List<List<String>> data = experience();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Column(children: [
       CommonNavBar(
         height: height,
         route: Experience.route,
       ),
-      Expanded(child: LayoutBuilder(builder: (context, constraints) {
+      Expanded(child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 1000) {
           return SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: List.generate(data.length, (i) {
+              children: List.generate(data.length, (int i) {
                 return Padding(
                   padding: EdgeInsets.only(
                       left: 30.0, right: 30.0, bottom: height * 0.05),
@@ -48,14 +49,14 @@ class Experience extends StatelessWidget {
             child: Column(
               children: List.generate(
                 data.length % 3 == 0 ? data.length ~/ 3 : data.length ~/ 3 + 1,
-                (i) => Padding(
+                (int i) => Padding(
                   padding: EdgeInsets.only(bottom: width * 0.03),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(
                         (data.length - storage - 1) >= 3
                             ? 3
-                            : data.length - storage - 1, (index) {
+                            : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
                       return ExperienceCard(
                         height: height,

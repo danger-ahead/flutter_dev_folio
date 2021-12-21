@@ -1,19 +1,20 @@
-import 'package:flutter_dev_folio/routes/contact_me.dart';
-import 'package:flutter_dev_folio/routes/education.dart';
-import 'package:flutter_dev_folio/routes/what_i_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/routes/home.dart';
-import 'package:flutter_dev_folio/routes/experience.dart';
-import 'package:flutter_dev_folio/routes/projects.dart';
-import 'package:flutter_dev_folio/routes/achievements.dart';
-import 'package:flutter_dev_folio/src/configure_web.dart';
-import 'package:flutter_dev_folio/src/json_service.dart';
-import 'package:flutter_dev_folio/src/theme/custom_theme.dart';
-import 'package:flutter_dev_folio/src/theme/config.dart';
 
-void main() async {
+import 'routes/achievements.dart';
+import 'routes/contact_me.dart';
+import 'routes/education.dart';
+import 'routes/experience.dart';
+import 'routes/home.dart';
+import 'routes/projects.dart';
+import 'routes/what_i_do.dart';
+import 'src/configure_web.dart';
+import 'src/json_service.dart';
+import 'src/theme/config.dart';
+import 'src/theme/custom_theme.dart';
+
+void main() {
   configureApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -45,15 +46,15 @@ class _MyAppState extends State<MyApp> {
             darkTheme: CustomTheme.darkTheme,
             themeMode: currentTheme.currentTheme,
             routes: {
-              '/': (context) => HomePage(),
-              '/experience': (context) => Experience(),
-              '/projects': (context) => Projects(),
-              '/achievements': (context) => Achievements(),
-              '/what_i_do': (context) => WhatIdo(),
-              '/contact_me': (context) => ContactMe(),
-              '/education': (context) => Education(),
+              '/': (BuildContext context) => const HomePage(),
+              '/experience': (BuildContext context) => Experience(),
+              '/projects': (BuildContext context) => Projects(),
+              '/achievements': (BuildContext context) => Achievements(),
+              '/what_i_do': (BuildContext context) => WhatIdo(),
+              '/contact_me': (BuildContext context) => const ContactMe(),
+              '/education': (BuildContext context) => Education(),
             },
           )
-        : Center(child: CircularProgressIndicator());
+        : const Center(child: CircularProgressIndicator());
   }
 }

@@ -1,11 +1,11 @@
-import 'package:flutter_dev_folio/src/json_service.dart';
+import '../json_service.dart';
 
 List<List<String>> education() {
-  List<List<String>> totalEducation = [];
-  List<String> temp = [];
+  final List<List<String>> totalEducation = [];
+  final List<String> temp = [];
 
-  for (var k in JSONService.response["education"].values) {
-    for (var l in k.values) temp.add(l.toString());
+  for (final k in JSONService.response['education'].values) {
+    for (final l in k.values) temp.add(l.toString());
 
     if (temp[5] == '') temp[5] = 'constant/education.png';
     totalEducation.add([...temp]);

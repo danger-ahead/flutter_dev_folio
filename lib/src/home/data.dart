@@ -1,33 +1,41 @@
-import 'package:flutter_dev_folio/src/json_service.dart';
+import '../json_service.dart';
 
 String about() {
-  return JSONService.response["about"];
+  return JSONService.response['about'].toString();
 }
 
 String resume() {
-  return JSONService.response["resume_download_link"];
+  return JSONService.response['resume_download_link'].toString();
 }
 
 String name() {
-  return JSONService.response["name_and_link"][0];
+  return JSONService.response['name_and_link'][0].toString();
 }
 
 List<String> designation() {
-  List<String> result = [];
+  final List<String> result = [];
 
-  for (int i = 0; i < JSONService.response["designation"].toList().length; i++)
-    result.add(JSONService.response["designation"].toList()[i].toString());
+  for (int i = 0;
+      i <
+          int.parse(
+              JSONService.response['designation'].toList().length.toString());
+      i++)
+    result.add(JSONService.response['designation'].toList()[i].toString());
   return result;
 }
 
 List<List<String>> socialMedia() {
-  List<List<String>> result = [];
+  final List<List<String>> result = [];
 
-  List<String> temp = [];
+  final List<String> temp = [];
 
-  for (var k in JSONService.response["social_media"].keys) {
-    for (int i = 0; i < JSONService.response["social_media"][k].length; i++) {
-      temp.add(JSONService.response["social_media"][k][i]);
+  for (final k in JSONService.response['social_media'].keys) {
+    for (int i = 0;
+        i <
+            int.parse(
+                JSONService.response['social_media'][k].length.toString());
+        i++) {
+      temp.add(JSONService.response['social_media'][k][i].toString());
     }
     result.add([...temp]);
     temp.clear();

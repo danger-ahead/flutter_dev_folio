@@ -32,8 +32,8 @@ class _UnderlinedButtonState extends State<UnderlinedButton> {
       child: InkWell(
         borderRadius: BorderRadius.circular(5.0),
         hoverColor: Colors.transparent,
-        onTap: (() => Navigator.pushNamed(context, widget.routeName)),
-        onHover: (value) => setState(() => _isHover = value),
+        onTap: () => Navigator.pushNamed(context, widget.routeName),
+        onHover: (bool value) => setState(() => _isHover = value),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

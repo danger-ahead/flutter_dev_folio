@@ -1,15 +1,16 @@
-import 'package:flutter_dev_folio/src/home/data.dart';
-import 'package:flutter_dev_folio/src/htmlOpenLink.dart';
 import 'package:flutter/material.dart';
+
+import '../html_open_link.dart';
+import 'data.dart';
 
 class SocialMediaBar extends StatelessWidget {
   SocialMediaBar({Key? key, required this.height}) : super(key: key);
-  final data = socialMedia();
+  final List<List<String>> data = socialMedia();
   final double height;
 
   @override
   Widget build(BuildContext context) {
-    List<String> currentSupportedSocialMedia = [
+    final List<String> currentSupportedSocialMedia = [
       'email',
       'facebook',
       'github',
@@ -24,14 +25,14 @@ class SocialMediaBar extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.cover,
           child: Row(
-            children: List.generate(data.length, (i) {
+            children: List.generate(data.length, (int i) {
               return IconButton(
                   iconSize: 50.0,
                   hoverColor: Colors.transparent,
                   icon: (data[i][1] != '' &&
-                          currentSupportedSocialMedia.indexOf(data[i][1]) != -1)
+                          currentSupportedSocialMedia.contains(data[i][1]))
                       ? SocialMediaButton(
-                          image: 'assets/home/constant/' + data[i][1] + '.png',
+                          image: 'assets/home/constant/${data[i][1]}.png',
                           link: data[i][0],
                           height: height)
                       : SocialMediaButton(
@@ -49,9 +50,10 @@ class SocialMediaBar extends StatelessWidget {
 }
 
 class SocialMediaButton extends StatefulWidget {
-  SocialMediaButton(
+  const SocialMediaButton(
       {Key? key, required this.image, required this.height, required this.link})
       : super(key: key);
+  @override
   _SocialMediaButton createState() => _SocialMediaButton();
 
   final String image, link;
@@ -64,10 +66,10 @@ class _SocialMediaButton extends State<SocialMediaButton> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: (isHover) ? widget.height * 0.005 : widget.height * 0.01,
-          bottom: !(isHover) ? widget.height * 0.005 : widget.height * 0.01),
+          top: isHover ? widget.height * 0.005 : widget.height * 0.01,
+          bottom: !isHover ? widget.height * 0.005 : widget.height * 0.01),
       child: InkWell(
         hoverColor: Colors.transparent,
         splashColor: Colors.transparent,
@@ -76,7 +78,7 @@ class _SocialMediaButton extends State<SocialMediaButton> {
         onTap: () {
           htmlOpenLink(widget.link);
         },
-        onHover: (val) {
+        onHover: (bool val) {
           setState(() {
             isHover = val;
           });

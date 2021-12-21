@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/routes/contact_me.dart';
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
-import 'package:flutter_dev_folio/src/education/data.dart';
+import '../../routes/contact_me.dart';
+import '../custom/text_style.dart';
+import '../education/data.dart';
 
 class ContactMeButton extends StatelessWidget {
-  final data = education();
+  ContactMeButton({Key? key}) : super(key: key);
+
+  final List<List<String>> data = education();
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: data.length != 0,
+      visible: data.isNotEmpty,
       child: TextButton(
         child: text('CONTACT ME', 20, Theme.of(context).primaryColor),
         onPressed: () => Navigator.pushNamed(context, ContactMe.route),

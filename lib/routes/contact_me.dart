@@ -1,38 +1,41 @@
-import 'package:flutter_dev_folio/src/contact_me/my_bio.dart';
-import 'package:flutter_dev_folio/src/home/social_media_bar.dart';
-import 'package:flutter_dev_folio/src/htmlOpenLink.dart';
-import 'package:flutter_dev_folio/src/theme/config.dart';
-import 'package:flutter_dev_folio/src/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/routes/common_nav_bar.dart';
-import 'package:flutter_dev_folio/src/contact_me/data.dart';
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
+
+import '../src/contact_me/data.dart';
+import '../src/contact_me/my_bio.dart';
+import '../src/custom/text_style.dart';
+import '../src/home/social_media_bar.dart';
+import '../src/html_open_link.dart';
+import '../src/theme/config.dart';
+import '../src/theme/custom_theme.dart';
+import 'common_nav_bar.dart';
 
 class ContactMe extends StatefulWidget {
+  const ContactMe({Key? key}) : super(key: key);
   static const String route = '/contact_me';
-  ContactMe({Key? key}) : super(key: key);
 
+  @override
   _ContactMeState createState() => _ContactMeState();
 }
 
 class _ContactMeState extends State<ContactMe> {
-  final data = contactMe();
-  final getNameAndLink = nameAndLink();
+  final List<String> data = contactMe();
+  final List<String> getNameAndLink = nameAndLink();
   bool isHover = false;
 
+  @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
 
     Widget imageWidget(double scale) {
       return AnimatedContainer(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         padding: EdgeInsets.only(
-            top: (isHover) ? height * 0.005 : height * 0.01,
-            bottom: !(isHover) ? height * 0.005 : height * 0.01),
+            top: isHover ? height * 0.005 : height * 0.01,
+            bottom: !isHover ? height * 0.005 : height * 0.01),
         child: InkWell(
           onTap: () {},
-          onHover: (value) {
+          onHover: (bool value) {
             setState(() {
               isHover = value;
             });
@@ -43,7 +46,7 @@ class _ContactMeState extends State<ContactMe> {
           highlightColor: Colors.transparent,
           child: ClipOval(
               child: data[2] != ''
-                  ? Image.asset('assets/contact_me/' + data[2], scale: scale)
+                  ? Image.asset('assets/contact_me/${data[2]}', scale: scale)
                   : Image.asset('assets/contact_me/constant/picture.png',
                       scale: scale)),
         ),
@@ -58,7 +61,8 @@ class _ContactMeState extends State<ContactMe> {
             route: ContactMe.route,
           ),
           Expanded(
-            child: LayoutBuilder(builder: (context, constraints) {
+            child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
               if (constraints.maxWidth < 1000) {
                 return Center(
                   child: SingleChildScrollView(
@@ -97,15 +101,16 @@ class _ContactMeState extends State<ContactMe> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                data[0] != ''
-                                    ? Image.asset(
-                                        currentTheme.currentTheme ==
-                                                ThemeMode.dark
-                                            ? 'assets/contact_me/constant/location-dark.png'
-                                            : 'assets/contact_me/constant/location.png',
-                                        scale: 4)
-                                    : Center(),
-                                text(' ' + data[0], 18,
+                                if (data[0] != '')
+                                  Image.asset(
+                                      currentTheme.currentTheme ==
+                                              ThemeMode.dark
+                                          ? 'assets/contact_me/constant/location-dark.png'
+                                          : 'assets/contact_me/constant/location.png',
+                                      scale: 4)
+                                else
+                                  const Center(),
+                                text(' ${data[0]}', 18,
                                     Theme.of(context).primaryColorLight),
                               ],
                             ),
@@ -116,9 +121,9 @@ class _ContactMeState extends State<ContactMe> {
                               top: 5.0,
                             ),
                             child: data[1] != ''
-                                ? text('Open for opportunities: ' + data[1], 18,
+                                ? text('Open for opportunities: ${data[1]}', 18,
                                     Theme.of(context).primaryColorLight)
-                                : Center(),
+                                : const Center(),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 13.0),
@@ -139,7 +144,7 @@ class _ContactMeState extends State<ContactMe> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
+                        SizedBox(
                           width: width / 2,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,23 +167,25 @@ class _ContactMeState extends State<ContactMe> {
                                     const EdgeInsets.symmetric(vertical: 15.0),
                                 child: Row(
                                   children: [
-                                    data[0] != ''
-                                        ? Image.asset(
-                                            currentTheme.currentTheme ==
-                                                    ThemeMode.dark
-                                                ? 'assets/contact_me/constant/location-dark.png'
-                                                : 'assets/contact_me/constant/location.png',
-                                            scale: 4)
-                                        : Center(),
-                                    text(' ' + data[0], 18,
+                                    if (data[0] != '')
+                                      Image.asset(
+                                          currentTheme.currentTheme ==
+                                                  ThemeMode.dark
+                                              ? 'assets/contact_me/constant/location-dark.png'
+                                              : 'assets/contact_me/constant/location.png',
+                                          scale: 4)
+                                    else
+                                      const Center(),
+                                    text(' ${data[0]}', 18,
                                         Theme.of(context).primaryColorLight),
                                   ],
                                 ),
                               ),
-                              data[1] != ''
-                                  ? text('Open for opportunities: ' + data[1],
-                                      18, Theme.of(context).primaryColorLight)
-                                  : Center(),
+                              if (data[1] != '')
+                                text('Open for opportunities: ${data[1]}', 18,
+                                    Theme.of(context).primaryColorLight)
+                              else
+                                const Center(),
                             ],
                           ),
                         ),
@@ -212,7 +219,7 @@ class _ContactMeState extends State<ContactMe> {
               children: [
                 TextButton(
                   onPressed: () => htmlOpenLink(getNameAndLink[1]),
-                  child: text('Made with ❤️ by ' + getNameAndLink[0], 10,
+                  child: text('Made with ❤️ by ${getNameAndLink[0]}', 10,
                       Theme.of(context).primaryColorLight),
                 ),
                 TextButton(

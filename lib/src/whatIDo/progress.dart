@@ -1,5 +1,6 @@
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/text_style.dart';
 
 class Progress extends StatefulWidget {
   const Progress(
@@ -10,6 +11,7 @@ class Progress extends StatefulWidget {
       required this.sizeProficiencyName,
       required this.sizePercentage})
       : super(key: key);
+  @override
   _ProgressState createState() => _ProgressState();
 
   final double width, widthSecondContainer, sizeProficiencyName, sizePercentage;
@@ -24,7 +26,7 @@ class _ProgressState extends State<Progress>
   void initState() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       upperBound: widget.widthSecondContainer / 100,
     );
     animationController.addListener(() {
@@ -36,13 +38,13 @@ class _ProgressState extends State<Progress>
 
   @override
   void dispose() {
-    this.animationController.dispose();
+    animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final percentage = animationController.value * 100;
+    final double percentage = animationController.value * 100;
     return FittedBox(
       fit: BoxFit.cover,
       child: Padding(
@@ -51,7 +53,7 @@ class _ProgressState extends State<Progress>
         ),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: widget.width / 1.2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,11 +67,11 @@ class _ProgressState extends State<Progress>
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: widget.width / 1.2,
               height: 20,
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: LinearProgressIndicator(
                   value: animationController.value,
                   valueColor:

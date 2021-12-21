@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/src/home/data.dart';
+import 'data.dart';
 
 class About extends StatelessWidget {
   About({
@@ -8,7 +8,7 @@ class About extends StatelessWidget {
   }) : super(key: key);
 
   final double fontSize;
-  final gotAbout = about();
+  final String gotAbout = about();
 
   @override
   Widget build(BuildContext context) {

@@ -1,17 +1,19 @@
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
-import 'package:flutter_dev_folio/src/json_service.dart';
 import 'package:http/http.dart' as http;
+
+import '../json_service.dart';
 
 //checking if dotenv starts with "ghp"
 //https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/#:~:text=ghp_%20for%20Personal%20Access%20Tokens
 
 List<List<String>> projects() {
-  List<List<String>> totalProjects = [];
-  List<String> temp = [];
+  final List<List<String>> totalProjects = [];
+  final List<String> temp = [];
 
-  for (var k in JSONService.response["projects"].values) {
-    for (var l in k.values) temp.add(l.toString());
+  for (final k in JSONService.response['projects'].values) {
+    for (final l in k.values) temp.add(l.toString());
 
     totalProjects.add([...temp]);
     temp.clear();
@@ -20,61 +22,61 @@ List<List<String>> projects() {
 }
 
 Future<List<String>> starsAndForks(String repo) async {
-  String loadDotenv = await rootBundle.loadString('dotenv');
-  List<String> words = repo.split("/");
-  var response;
-  if (loadDotenv.startsWith("ghp")) {
+  final String loadDotenv = await rootBundle.loadString('dotenv');
+  final List<String> words = repo.split('/');
+  http.Response response;
+  if (loadDotenv.startsWith('ghp')) {
     response = await http.get(
       Uri.https(
-          'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),
+          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
       headers: {
-        'Authorization': 'Bearer ' + loadDotenv,
+        'Authorization': 'Bearer $loadDotenv',
       },
     );
   } else {
     response = await http.get(
       Uri.https(
-          'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),
+          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
     );
   }
-  var information = jsonDecode(response.body);
+  final information = jsonDecode(response.body);
 
-  List<String> starsForks = [
-    information["stargazers_count"].toString(),
-    information["forks"].toString()
+  final List<String> starsForks = [
+    information['stargazers_count'].toString(),
+    information['forks'].toString()
   ];
 
   return starsForks;
 }
 
 Future<List<String>> github(String repo) async {
-  String loadDotenv = await rootBundle.loadString('dotenv');
-  List<String> words = repo.split("/");
-  var response;
-  if (loadDotenv.startsWith("ghp")) {
+  final String loadDotenv = await rootBundle.loadString('dotenv');
+  final List<String> words = repo.split('/');
+  http.Response response;
+  if (loadDotenv.startsWith('ghp')) {
     response = await http.get(
       Uri.https(
-          'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),
+          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
       headers: {
-        'Authorization': 'Bearer ' + loadDotenv,
+        'Authorization': 'Bearer $loadDotenv',
       },
     );
   } else {
     response = await http.get(
       Uri.https(
-          'api.github.com', 'repos/danger-ahead/' + words[words.length - 1]),
+          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
     );
   }
-  var information = jsonDecode(response.body);
+  final information = jsonDecode(response.body);
 
-  List<String> starsForks = [
-    information["full_name"]
+  final List<String> starsForks = [
+    information['full_name']
         .toString()
-        .split("/")[information["full_name"].toString().split("/").length - 1],
-    information["language"].toString(),
-    information["description"].toString(),
-    information["stargazers_count"].toString(),
-    information["forks"].toString()
+        .split('/')[information['full_name'].toString().split('/').length - 1],
+    information['language'].toString(),
+    information['description'].toString(),
+    information['stargazers_count'].toString(),
+    information['forks'].toString()
   ];
 
   return starsForks;

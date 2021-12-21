@@ -1,17 +1,19 @@
-import 'package:flutter_dev_folio/src/achievements/card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/routes/common_nav_bar.dart';
-import 'package:flutter_dev_folio/src/achievements/data.dart';
+
+import '../src/achievements/card.dart';
+import '../src/achievements/data.dart';
+import 'common_nav_bar.dart';
 
 class Achievements extends StatelessWidget {
-  static const String route = '/achievements';
   Achievements({Key? key}) : super(key: key);
+  static const String route = '/achievements';
 
-  final data = achievements();
+  final List<List<String>> data = achievements();
 
+  @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
         body: Column(children: [
@@ -20,12 +22,12 @@ class Achievements extends StatelessWidget {
         route: route,
       ),
       Expanded(
-        child: LayoutBuilder(builder: (context, constraints) {
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth < 1000) {
             return SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: List.generate(data.length, (i) {
+                children: List.generate(data.length, (int i) {
                   return Container(
                     padding:
                         EdgeInsets.fromLTRB(30.0, 0.0, 30.0, height * 0.05),
@@ -48,14 +50,14 @@ class Achievements extends StatelessWidget {
                   data.length % 3 == 0
                       ? data.length ~/ 3
                       : data.length ~/ 3 + 1,
-                  (i) => Padding(
+                  (int i) => Padding(
                     padding: EdgeInsets.only(bottom: width * 0.03),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: List.generate(
                           (data.length - storage - 1) >= 3
                               ? 3
-                              : data.length - storage - 1, (index) {
+                              : data.length - storage - 1, (int index) {
                         storage = index + i * 3;
                         return AchievementsCard(
                           height: height,

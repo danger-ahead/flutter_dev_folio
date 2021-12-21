@@ -1,11 +1,12 @@
-import 'package:flutter_dev_folio/routes/education.dart';
-import 'package:flutter_dev_folio/routes/what_i_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/src/theme/theme_button.dart';
-import 'package:flutter_dev_folio/src/home/nav_bar_btn.dart';
-import 'package:flutter_dev_folio/routes/achievements.dart';
-import 'package:flutter_dev_folio/routes/experience.dart';
-import 'package:flutter_dev_folio/routes/projects.dart';
+
+import '../../routes/achievements.dart';
+import '../../routes/education.dart';
+import '../../routes/experience.dart';
+import '../../routes/projects.dart';
+import '../../routes/what_i_do.dart';
+import '../theme/theme_button.dart';
+import 'nav_bar_btn.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({
@@ -53,7 +54,7 @@ class _NavBarState extends State<NavBar> {
             btnName: 'Achievements'),
         Visibility(
           visible: widget.isDarkModeBtnVisible,
-          child: ThemeButton(),
+          child: const ThemeButton(),
         )
       ],
     );

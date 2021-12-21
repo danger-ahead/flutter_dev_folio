@@ -1,7 +1,8 @@
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
-import 'package:flutter_dev_folio/src/htmlOpenLink.dart';
-import 'package:flutter_dev_folio/src/theme/config.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/text_style.dart';
+import '../html_open_link.dart';
+import '../theme/config.dart';
 
 class AchievementsCard extends StatefulWidget {
   const AchievementsCard(
@@ -16,6 +17,7 @@ class AchievementsCard extends StatefulWidget {
   final double height, width;
   final String desc, link;
   final bool isMobile;
+  @override
   _AchievementsCardState createState() => _AchievementsCardState();
 }
 
@@ -30,17 +32,16 @@ class _AchievementsCardState extends State<AchievementsCard> {
           BoxShadow(
             color: isHover ? Colors.black12 : Colors.black45,
             blurRadius: 10.0,
-            spreadRadius: 0.0,
-            offset: Offset(8, 12),
+            offset: const Offset(8, 12),
           )
         ],
       ),
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: (isHover) ? widget.height * 0.005 : widget.height * 0.01,
-          bottom: !(isHover) ? widget.height * 0.005 : widget.height * 0.01),
+          top: isHover ? widget.height * 0.005 : widget.height * 0.01,
+          bottom: !isHover ? widget.height * 0.005 : widget.height * 0.01),
       child: InkWell(
-        onHover: (value) {
+        onHover: (bool value) {
           setState(() {
             isHover = value;
           });
@@ -61,8 +62,7 @@ class _AchievementsCardState extends State<AchievementsCard> {
               BoxShadow(
                 color: isHover ? Colors.black12 : Colors.black45,
                 blurRadius: 10.0,
-                spreadRadius: 0.0,
-                offset: Offset(8, 12),
+                offset: const Offset(8, 12),
               )
             ],
             color: currentTheme.currentTheme == ThemeMode.dark

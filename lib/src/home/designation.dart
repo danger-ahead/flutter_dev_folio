@@ -1,6 +1,7 @@
-import 'package:flutter_dev_folio/src/home/data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
+
+import '../custom/text_style.dart';
+import 'data.dart';
 
 class Designation extends StatelessWidget {
   Designation({
@@ -11,7 +12,7 @@ class Designation extends StatelessWidget {
 
   final bool isMobile;
   final BuildContext context;
-  final data = designation();
+  final List<String> data = designation();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class _TextSwapControllerState extends State<TextSwapController> {
   }
 
   void _timer() {
-    Future.delayed(Duration(seconds: 1)).then((_) {
+    Future.delayed(const Duration(seconds: 1)).then((_) {
       if (mounted) setState(() {});
       _timer();
     });
@@ -71,7 +72,7 @@ class _TextSwapControllerState extends State<TextSwapController> {
     if (widget.data.length == i) i = 0;
     return text(
         widget.isMobile
-            ? widget.data[i++].replaceAll(" ", "\n")
+            ? widget.data[i++].replaceAll(' ', '\n')
             : widget.data[i++],
         widget.isMobile ? 40 : 60,
         Theme.of(context).primaryColorLight);

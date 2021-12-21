@@ -1,8 +1,10 @@
-import 'package:flutter_dev_folio/src/theme/config.dart';
 import 'package:flutter/material.dart';
+
+import 'config.dart';
 
 class ThemeButton extends StatefulWidget {
   const ThemeButton({Key? key}) : super(key: key);
+  @override
   ThemeButtonState createState() => ThemeButtonState();
 }
 
@@ -20,8 +22,8 @@ class ThemeButtonState extends State<ThemeButton> {
         setState(() {});
       },
       icon: currentTheme.currentTheme == ThemeMode.dark
-          ? Icon(Icons.wb_sunny)
-          : Icon(Icons.nightlight),
+          ? const Icon(Icons.wb_sunny)
+          : const Icon(Icons.nightlight),
     );
   }
 }

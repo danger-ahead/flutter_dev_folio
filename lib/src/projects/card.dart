@@ -1,8 +1,9 @@
-import 'package:flutter_dev_folio/src/custom/text_style.dart';
-import 'package:flutter_dev_folio/src/htmlOpenLink.dart';
-import 'package:flutter_dev_folio/src/projects/data.dart';
-import 'package:flutter_dev_folio/src/theme/config.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/text_style.dart';
+import '../html_open_link.dart';
+import '../theme/config.dart';
+import 'data.dart';
 
 class ProjectsCard extends StatefulWidget {
   const ProjectsCard(
@@ -34,17 +35,16 @@ class _ProjectsCardState extends State<ProjectsCard> {
           BoxShadow(
             color: isHover ? Colors.black12 : Colors.black45,
             blurRadius: 10.0,
-            spreadRadius: 0.0,
-            offset: Offset(8, 12),
+            offset: const Offset(8, 12),
           )
         ],
       ),
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: (isHover) ? widget.height * 0.005 : widget.height * 0.01,
-          bottom: !(isHover) ? widget.height * 0.005 : widget.height * 0.01),
+          top: isHover ? widget.height * 0.005 : widget.height * 0.01,
+          bottom: !isHover ? widget.height * 0.005 : widget.height * 0.01),
       child: InkWell(
-        onHover: (value) {
+        onHover: (bool value) {
           setState(() {
             isHover = value;
           });
@@ -64,8 +64,7 @@ class _ProjectsCardState extends State<ProjectsCard> {
               BoxShadow(
                 color: isHover ? Colors.black12 : Colors.black45,
                 blurRadius: 10.0,
-                spreadRadius: 0.0,
-                offset: Offset(8, 12),
+                offset: const Offset(8, 12),
               )
             ],
             color: currentTheme.currentTheme == ThemeMode.dark
@@ -78,9 +77,10 @@ class _ProjectsCardState extends State<ProjectsCard> {
           child: (widget.title == '' && widget.link != '')
               ? FutureBuilder(
                   future: github(widget.link),
-                  builder: (context, snapshot) {
+                  builder:
+                      (BuildContext context, AsyncSnapshot<Object?> snapshot) {
                     if (snapshot.hasData) {
-                      var data = snapshot.data as List<String>;
+                      final List<String> data = snapshot.data as List<String>;
                       return Column(
                         children: [
                           Expanded(
@@ -106,23 +106,22 @@ class _ProjectsCardState extends State<ProjectsCard> {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset('assets/projects/constant/stars.png',
                                   scale: 2),
                               Padding(
                                 padding: const EdgeInsets.only(right: 24.0),
-                                child: text(' ' + data[3], 12, Colors.white),
+                                child: text(' ${data[3]}', 12, Colors.white),
                               ),
                               Image.asset('assets/projects/constant/forks.png',
                                   scale: 2),
-                              text(' ' + data[4], 12, Colors.white),
+                              text(' ${data[4]}', 12, Colors.white),
                             ],
                           ),
                         ],
                       );
                     }
-                    return Center();
+                    return const Center();
                   })
               : Column(
                   children: [
@@ -150,29 +149,30 @@ class _ProjectsCardState extends State<ProjectsCard> {
                     ),
                     FutureBuilder(
                         future: starsAndForks(widget.link),
-                        builder: (context, snapshot) {
+                        builder: (BuildContext context,
+                            AsyncSnapshot<Object?> snapshot) {
                           if (snapshot.hasData) {
-                            var data = snapshot.data as List<String>;
-                            if (data[1] == "null" && data[0] == "null")
-                              return Center();
+                            final List<String> data =
+                                snapshot.data as List<String>;
+                            if (data[1] == 'null' && data[0] == 'null')
+                              return const Center();
                             return Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Image.asset(
                                     'assets/projects/constant/stars.png',
                                     scale: 2),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 24.0),
-                                  child: text(' ' + data[0], 12, Colors.white),
+                                  child: text(' ${data[0]}', 12, Colors.white),
                                 ),
                                 Image.asset(
                                     'assets/projects/constant/forks.png',
                                     scale: 2),
-                                text(' ' + data[1], 12, Colors.white),
+                                text(' ${data[1]}', 12, Colors.white),
                               ],
                             );
                           }
-                          return Center();
+                          return const Center();
                         }),
                   ],
                 ),

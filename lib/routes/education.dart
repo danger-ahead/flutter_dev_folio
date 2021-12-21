@@ -1,32 +1,34 @@
-import 'package:flutter_dev_folio/routes/common_nav_bar.dart';
-import 'package:flutter_dev_folio/src/education/card_desktop.dart';
-import 'package:flutter_dev_folio/src/education/card_mobile.dart';
-import 'package:flutter_dev_folio/src/education/data.dart';
 import 'package:flutter/material.dart';
 
-class Education extends StatelessWidget {
-  static const String route = '/education';
-  Education({Key? key}) : super(key: key);
+import '../src/education/card_desktop.dart';
+import '../src/education/card_mobile.dart';
+import '../src/education/data.dart';
+import 'common_nav_bar.dart';
 
-  final data = education();
+class Education extends StatelessWidget {
+  Education({Key? key}) : super(key: key);
+  static const String route = '/education';
+
+  final List<List<String>> data = education();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Column(children: [
       CommonNavBar(
         height: height,
         route: route,
       ),
-      Expanded(child: LayoutBuilder(builder: (context, constraints) {
+      Expanded(child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 1000) {
           return SingleChildScrollView(
             child: Column(
               children: List.generate(
                 data.length,
-                (i) => Padding(
+                (int i) => Padding(
                   padding: EdgeInsets.only(
                       left: 30.0, right: 30.0, bottom: height * 0.05),
                   child: EducationMobileCard(
@@ -48,7 +50,7 @@ class Education extends StatelessWidget {
             child: Column(
               children: List.generate(
                 data.length,
-                (i) => Padding(
+                (int i) => Padding(
                   padding: EdgeInsets.only(bottom: height * 0.04),
                   child: EducationDesktopCard(
                     height: height,

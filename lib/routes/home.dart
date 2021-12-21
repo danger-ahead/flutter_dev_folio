@@ -1,16 +1,17 @@
-import 'package:flutter_dev_folio/src/contact_me/contact_me_button.dart';
-import 'package:flutter_dev_folio/src/home/about.dart';
-import 'package:flutter_dev_folio/src/home/resume.dart';
-import 'package:flutter_dev_folio/src/home/social_media_bar.dart';
-import 'package:flutter_dev_folio/src/theme/theme_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_folio/src/home/designation.dart';
-import 'package:flutter_dev_folio/src/home/introduction.dart';
-import 'package:flutter_dev_folio/src/home/my_name.dart';
-import 'package:flutter_dev_folio/src/home/nav_bar.dart';
+
+import '../src/contact_me/contact_me_button.dart';
+import '../src/home/about.dart';
+import '../src/home/designation.dart';
+import '../src/home/introduction.dart';
+import '../src/home/my_name.dart';
+import '../src/home/nav_bar.dart';
+import '../src/home/resume.dart';
+import '../src/home/social_media_bar.dart';
+import '../src/theme/theme_button.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -26,10 +27,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: LayoutBuilder(builder: (context, constraints) {
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 1000) {
           return SingleChildScrollView(
             child: Padding(
@@ -59,10 +61,10 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           child: menuVisible
-                              ? Icon(Icons.menu_open)
-                              : Icon(Icons.menu),
+                              ? const Icon(Icons.menu_open)
+                              : const Icon(Icons.menu),
                         ),
-                        ThemeButton(),
+                        const ThemeButton(),
                       ],
                     ),
                   ),
@@ -70,12 +72,12 @@ class _HomePageState extends State<HomePage> {
                     visible: menuVisible,
                     child: Padding(
                       padding: EdgeInsets.only(bottom: height * 0.029),
-                      child: NavBar(
+                      child: const NavBar(
                         isDarkModeBtnVisible: false,
                       ),
                     ),
                   ),
-                  Introduction(word: 'Hello,\nI am', textScaleFactor: 3),
+                  const Introduction(word: 'Hello,\nI am', textScaleFactor: 3),
                   MyName(
                     isMobile: true,
                     context: context,
@@ -107,7 +109,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: height * 0.1),
-                  child: NavBar(
+                  child: const NavBar(
                     isDarkModeBtnVisible: true,
                   ),
                 ),
@@ -116,7 +118,8 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Introduction(word: 'Hello, I am', textScaleFactor: 3.5),
+                      const Introduction(
+                          word: 'Hello, I am', textScaleFactor: 3.5),
                       FittedBox(
                           fit: BoxFit.cover,
                           child: MyName(

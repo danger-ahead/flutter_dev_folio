@@ -1,9 +1,9 @@
-import 'package:flutter_dev_folio/src/json_service.dart';
+import '../json_service.dart';
 
 List<String> contactMe() {
-  List<String> contactMeDetails = [];
+  final List<String> contactMeDetails = [];
 
-  for (var k in JSONService.response["contact_me"].values)
+  for (final k in JSONService.response['contact_me'].values)
     contactMeDetails.add(k.toString());
 
   return contactMeDetails;
@@ -11,11 +11,11 @@ List<String> contactMe() {
 
 List<String> nameAndLink() {
   return [
-    JSONService.response["name_and_link"][0],
-    JSONService.response["name_and_link"][1]
+    JSONService.response['name_and_link'][0].toString(),
+    JSONService.response['name_and_link'][1].toString()
   ];
 }
 
 String bio() {
-  return JSONService.response["bio"];
+  return JSONService.response['bio'].toString();
 }
