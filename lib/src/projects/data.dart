@@ -27,16 +27,16 @@ Future<List<String>> starsAndForks(String repo) async {
   http.Response response;
   if (loadDotenv.startsWith('ghp')) {
     response = await http.get(
-      Uri.https(
-          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
+      Uri.https('api.github.com',
+          'repos/${words[words.length - 2]}/${words[words.length - 1]}'),
       headers: {
         'Authorization': 'Bearer $loadDotenv',
       },
     );
   } else {
     response = await http.get(
-      Uri.https(
-          'api.github.com', 'repos/danger-ahead/${words[words.length - 1]}'),
+      Uri.https('api.github.com',
+          'repos/${words[words.length - 2]}/${words[words.length - 1]}'),
     );
   }
   final information = jsonDecode(response.body);

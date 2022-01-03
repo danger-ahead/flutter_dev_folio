@@ -2,35 +2,31 @@ import 'package:flutter/material.dart';
 
 import '../src/experience/card.dart';
 import '../src/experience/data.dart';
-import 'common_nav_bar.dart';
+import '../src/nav_bar/title_bar.dart';
 
 class Experience extends StatelessWidget {
   Experience({Key? key}) : super(key: key);
 
-  static const String route = '/experience';
   final List<List<String>> data = experience();
 
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-        body: Column(children: [
-      CommonNavBar(
-        height: height,
-        route: Experience.route,
-      ),
-      Expanded(child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth < 1000) {
-          return SingleChildScrollView(
-            child: Column(
+    return Column(children: [
+      TitleBar(height: height, width: width, title: 'EXPERIENCE'),
+      Padding(
+        padding: EdgeInsets.only(bottom: height * 0.1),
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth < 1000) {
+            return Column(
               children: List.generate(data.length, (int i) {
                 return Padding(
                   padding: EdgeInsets.only(
                       left: 30.0, right: 30.0, bottom: height * 0.05),
                   child: ExperienceCard(
-                    height: height,
+                    height: height * 0.75,
                     width: width,
                     image: data[i][4],
                     title: data[i][0],
@@ -41,12 +37,10 @@ class Experience extends StatelessWidget {
                   ),
                 );
               }),
-            ),
-          );
-        } else {
-          int storage = -1;
-          return SingleChildScrollView(
-            child: Column(
+            );
+          } else {
+            int storage = -1;
+            return Column(
               children: List.generate(
                 data.length % 3 == 0 ? data.length ~/ 3 : data.length ~/ 3 + 1,
                 (int i) => Padding(
@@ -59,7 +53,7 @@ class Experience extends StatelessWidget {
                             : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
                       return ExperienceCard(
-                        height: height,
+                        height: height * 0.85,
                         width: width,
                         image: data[index + i * 3][4],
                         title: data[index + i * 3][0],
@@ -72,10 +66,10 @@ class Experience extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          );
-        }
-      }))
-    ]));
+            );
+          }
+        }),
+      )
+    ]);
   }
 }

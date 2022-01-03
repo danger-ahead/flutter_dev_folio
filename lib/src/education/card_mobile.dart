@@ -8,7 +8,7 @@ class EducationMobileCard extends StatefulWidget {
       {Key? key,
       required this.height,
       required this.width,
-      required this.insttution,
+      required this.instiution,
       required this.location,
       required this.desc,
       required this.grades,
@@ -17,7 +17,7 @@ class EducationMobileCard extends StatefulWidget {
       : super(key: key);
 
   final double height, width;
-  final String insttution, location, years, grades, desc, image;
+  final String instiution, location, years, grades, desc, image;
   @override
   _EducationMobileCardState createState() => _EducationMobileCardState();
 }
@@ -85,7 +85,7 @@ class _EducationMobileCardState extends State<EducationMobileCard> {
                 ),
                 FittedBox(
                     fit: BoxFit.cover,
-                    child: text(widget.insttution, 25, Colors.white)),
+                    child: text(widget.instiution, 20, Colors.white)),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5.0),
                   child: FittedBox(
@@ -105,7 +105,7 @@ class _EducationMobileCardState extends State<EducationMobileCard> {
                     )),
                 FittedBox(
                     fit: BoxFit.cover,
-                    child: text(widget.desc, 15, Colors.white)),
+                    child: text(widget.desc, 13, Colors.white)),
                 FittedBox(
                     fit: BoxFit.cover,
                     child: text(

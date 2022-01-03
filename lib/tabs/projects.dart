@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../src/nav_bar/title_bar.dart';
 import '../src/projects/card.dart';
 import '../src/projects/data.dart';
-import 'common_nav_bar.dart';
 
 class Projects extends StatelessWidget {
   Projects({Key? key}) : super(key: key);
-  static const String route = '/projects';
 
   final List<List<String>> data = projects();
 
@@ -14,22 +13,19 @@ class Projects extends StatelessWidget {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-        body: Column(children: [
-      CommonNavBar(
-        height: height,
-        route: route,
-      ),
-      Expanded(child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth < 1000) {
-          return SingleChildScrollView(
-            child: Column(
+    return Column(children: [
+      TitleBar(height: height, width: width, title: 'PROJECTS'),
+      Padding(
+        padding: EdgeInsets.only(bottom: height * 0.1),
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth < 1000) {
+            return Column(
               children: List.generate(data.length, (int i) {
                 return Container(
                   padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, height * 0.05),
                   child: ProjectsCard(
-                    height: height,
+                    height: height * 0.75,
                     width: width,
                     title: data[i][0],
                     techStack: data[i][1],
@@ -39,12 +35,10 @@ class Projects extends StatelessWidget {
                   ),
                 );
               }),
-            ),
-          );
-        } else {
-          int storage = -1;
-          return SingleChildScrollView(
-            child: Column(
+            );
+          } else {
+            int storage = -1;
+            return Column(
               children: List.generate(
                 data.length % 3 == 0 ? data.length ~/ 3 : data.length ~/ 3 + 1,
                 (int i) => Padding(
@@ -69,10 +63,10 @@ class Projects extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          );
-        }
-      }))
-    ]));
+            );
+          }
+        }),
+      )
+    ]);
   }
 }
