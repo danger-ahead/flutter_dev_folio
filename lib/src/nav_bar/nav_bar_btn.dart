@@ -9,6 +9,7 @@ TextStyle textStyle(double fontSize, Color color) => TextStyle(
       fontWeight: FontWeight.bold,
     );
 
+//The buttons in the top Nav Bar
 class UnderlinedButton extends StatefulWidget {
   const UnderlinedButton(
       {Key? key,
@@ -61,9 +62,9 @@ class _UnderlinedButtonState extends State<UnderlinedButton> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(widget.btnNumber,
-                    style: textStyle(9, Theme.of(context).primaryColorLight)),
+                    style: textStyle(11, Theme.of(context).primaryColorLight)),
                 Text(widget.btnName,
-                    style: textStyle(13, Theme.of(context).primaryColor)),
+                    style: textStyle(15, Theme.of(context).primaryColor)),
               ],
             ),
             Visibility(

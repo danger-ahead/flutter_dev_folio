@@ -21,6 +21,8 @@ class App extends StatelessWidget {
             child: const ThemeButton(),
           ),
           body: ScrollablePositionedList.builder(
+              physics: const BouncingScrollPhysics(),
+              minCacheExtent: double.infinity,
               shrinkWrap: true,
               itemCount: 7,
               itemScrollController: scroll,
@@ -34,6 +36,8 @@ class App extends StatelessWidget {
               preferredSize: Size(width, height * 0.07),
               child: const NavBar(isDarkModeBtnVisible: true)),
           body: ScrollablePositionedList.builder(
+              physics: const BouncingScrollPhysics(),
+              minCacheExtent: double.infinity,
               shrinkWrap: true,
               itemCount: 7,
               itemScrollController: scroll,

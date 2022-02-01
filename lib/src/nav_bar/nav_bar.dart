@@ -3,20 +3,14 @@ import 'package:flutter/material.dart';
 import '../theme/theme_button.dart';
 import 'nav_bar_btn.dart';
 
-class NavBar extends StatefulWidget {
+//The top Nav Bar
+class NavBar extends StatelessWidget {
   const NavBar({
     Key? key,
     required this.isDarkModeBtnVisible,
   }) : super(key: key);
 
   final bool isDarkModeBtnVisible;
-
-  @override
-  State<NavBar> createState() => _NavBarState();
-}
-
-class _NavBarState extends State<NavBar> {
-  bool lightMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +55,7 @@ class _NavBarState extends State<NavBar> {
               btnNumber: ' 06. ',
               btnName: 'Contact Me'),
           Visibility(
-            visible: widget.isDarkModeBtnVisible,
+            visible: isDarkModeBtnVisible,
             child: const ThemeButton(),
           )
         ],

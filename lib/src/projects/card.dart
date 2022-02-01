@@ -53,10 +53,10 @@ class _ProjectsCardState extends State<ProjectsCard> {
         child: Container(
           alignment: Alignment.topCenter,
           padding: EdgeInsets.only(
-              top: widget.height * 0.04,
+              top: widget.height * 0.02,
               left: widget.width * 0.015,
               right: widget.width * 0.015,
-              bottom: widget.height * 0.04),
+              bottom: widget.height * 0.02),
           width: !widget.isMobile ? widget.width * 0.28 : widget.width,
           height: !widget.isMobile ? widget.height * 0.35 : widget.height / 2,
           decoration: BoxDecoration(
