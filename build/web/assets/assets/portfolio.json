@@ -7,25 +7,29 @@
         "CS Undergrad.",
         "Flutter Developer."
     ],
-    "resume_download_link": "https://docs.google.com/document/d/1SY_wOfxoz_FmdvlrTmVvA0xDNgu2Q-71vLlkjwsRS_c/export?format=pdf",
+    "resume_download_link": "https://docs.google.com/document/d/15T64f6XCPKDaJX7CUFDIqly-H4PcudLTWDlKGxb9IvQ/edit?usp=sharing/export?format=pdf",
     "social_media": {
         "1": [
             "https://github.com/danger-ahead/",
             "github"
         ],
         "2": [
+            "https://leetcode.com/danger-ahead/",
+            "leetcode"
+        ],
+        "3": [
             "https://linkedin.com/in/shourya-shikhar/",
             "linkedin"
         ],
-        "3": [
+        "4": [
             "https://stackoverflow.com/users/10951873/shourya-shikhar",
             "stackoverflow"
         ],
-        "4": [
+        "5": [
             "https://twitter.com/___shourya___/",
             "twitter"
         ],
-        "5": [
+        "6": [
             "mailto:danger.ahead@pm.me",
             "email"
         ]
@@ -120,34 +124,46 @@
     },
     "projects": {
         "1": {
+            "name": "Calculator",
+            "tech_stack_used": "Flutter",
+            "description": "Calculator app based on Soft UI (neumorphism), having simple and advanced modes. Also has a history section to save previously performed operations (using FLUTTER SQLITE). Supports 3 theme modes - system default, light and dark. State management approach used - RIVERPOD. PUBLISHED ON F-DROID.",
+            "general_or_github_link": "https://github.com/belelaritra/Neumorphic_Calculator"
+        },
+        "2": {
             "name": "flutter_dev_folio",
             "tech_stack_used": "Flutter",
             "description": "Minimal, Beautiful and responsive portfolio site template.",
             "general_or_github_link": "https://github.com/danger-ahead/flutter_dev_folio"
         },
-        "2": {
+        "3": {
             "name": "roBOT - Discord bot",
             "tech_stack_used": "Python, MongoDB, REST APIs",
             "description": "Bot with administrative commands (for kick, ban, mute, etc) and other fun commands (for memes, movies, jokes, etc).",
             "general_or_github_link": "https://github.com/danger-ahead/roBOT"
         },
-        "3": {
+        "4": {
             "name": "cinephilic",
             "tech_stack_used": "HTML, CS, JS",
             "description": "A chrome extension for showing the current trending movies in new tab.",
             "general_or_github_link": "https://github.com/quasar-rcciit/cinephilic"
         },
-        "4": {
-            "name": "Dictionary App",
+        "5": {
+            "name": "Dictionary",
             "tech_stack_used": "Flutter, SQLite, REST APIs",
-            "description": "Multi-language cross platform dictionary app with support for audio pronunciation (English only).",
+            "description": "Multi-language dictionary app with support for audio pronunciation (English only).",
             "general_or_github_link": "https://github.com/danger-ahead/flutter_dictionary"
         },
-        "5":{
+        "6":{
             "name": "Note",
             "tech_stack_used": "JAVA, MySQL",
             "description": "Simple terminal based Note Taking Application.",
             "general_or_github_link": "https://github.com/danger-ahead/Note"
+        },
+        "7":{
+            "name": "Enigma-tic-cryption",
+            "tech_stack_used": "C++",
+            "description": "Follows the exact encryption method used by the enigma. Has multiple modes for setting different rotors.",
+            "general_or_github_link": "https://github.com/danger-ahead/enigma-tic-cryption"
         }
     },
     "achievements": {
@@ -156,14 +172,18 @@
             "link": "https://www.linkedin.com/posts/juecell_hacknpitch-include-hackathon-activity-6849231722333249536-qqw2"
         },
         "2": {
-            "description": "Have 500+ reputation points in Stack Overflow.",
-            "link": "https://stackoverflow.com/users/10951873/shourya-shikhar"
+            "description": "Won Filecoin track prize from Filecoin for the best use of Filecoin and/or IPFS in a hackathon project (worth Rs. 20,000).",
+            "link": "https://www.linkedin.com/posts/shourya-shikhar_dapp-filecoin-decentralized-activity-6889903951555235840-FuLM"
         },
         "3": {
+            "description": "Have 600+ reputation points in Stack Overflow.",
+            "link": "https://stackoverflow.com/users/10951873/shourya-shikhar"
+        },
+        "4": {
             "description": "Completed 30 Days of Google Cloud '21.\n- Completed Cloud Engineering Track\n- Completed Data Science & Machine Learning Track",
             "link": "https://www.qwiklabs.com/public_profiles/d317f0a6-63b7-4c9f-be77-066e75ba3c6a"
         },
-        "4": {
+        "5": {
             "description": "Completed Hacktoberfest '21 with 6 merged PRs.",
             "link": "https://www.linkedin.com/posts/shourya-shikhar_hacktoberfest2021-hacktoberfest-opensource-activity-6857565719031361536-OpX8"
         }
