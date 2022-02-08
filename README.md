@@ -33,7 +33,7 @@ Made for people who are looking for a ready-made portfolio. Because making a por
     "second tagline"
 ],
 ```
-- Your social media handles. **Currently supports icons for Facebook, GitHub, Linkedin, Twitter, Medium, Stack Overflow, Twitter and email. Specify the name of the social media in small letters in the json**. *If you want to add link to something else, simply keep the name value empty (will load a button with template image).*
+- Your social media handles. **Currently supports icons for Facebook, GitHub, LeetCode, Linkedin, Twitter, Medium, Stack Overflow, Twitter and email. Specify the name of the social media in small letters in the json**. *If you want to add link to something else, simply keep the name value empty (will load a button with template image).*
 ```json
 "social_media": {
     "1": [

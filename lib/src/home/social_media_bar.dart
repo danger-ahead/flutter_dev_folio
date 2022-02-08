@@ -18,7 +18,8 @@ class SocialMediaBar extends StatelessWidget {
       'linkedin',
       'medium',
       'stackoverflow',
-      'twitter'
+      'twitter',
+      'leetcode'
     ];
     return Padding(
         padding: EdgeInsets.only(top: height * 0.03),
