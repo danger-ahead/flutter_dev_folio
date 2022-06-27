@@ -87,34 +87,41 @@
     },
     "experience": {
         "1": {
-            "name": "Credanic",
-            "role": "Flutter SDE Intern",
-            "period": "December, 2021 - Present",
-            "description": "Working in the Flutter App Dev Team.",
-            "image_name": "credanic.png"
+            "name": "Ekko",
+            "role": "Web and App Intern",
+            "period": "June, 2022 - Present",
+            "description": "Working in the web and app team.",
+            "image_name": "ekko.png"
         },
         "2": {
+            "name": "Credanic",
+            "role": "Flutter SDE Intern",
+            "period": "December, 2021 - February, 2021",
+            "description": "Worked in the Flutter App Dev Team.",
+            "image_name": "credanic.png"
+        },
+        "3": {
             "name": "Google Developer Student Club",
             "role": "Cybersecurity core member",
             "period": "September, 2021 - Present",
             "description": "Helped in organizing and conducting technical workshops, and informative webinars for community members.",
             "image_name": "GDSC.png"
         },
-        "3": {
+        "4": {
             "name": "RccTechz - RCCIIT Tech Chapter",
             "role": "Member",
-            "period": "March, 2021 - Present",
+            "period": "March, 2021 - March, 2022",
             "description": "Official Tech chapter of RCCIIT, RCCTechz. Contributed to Club activities, helped other members with projects and helped coordinate workshops.",
             "image_name": "rcctechz.png"
         },
-        "4": {
+        "5": {
             "name": "Coding Ninjas",
             "role": "Campus Ambassador",
-            "period": "August, 2021 - Present",
+            "period": "August, 2021 - February, 2022",
             "description": "Promoting the company's courses, sharing referrals and conducting workshops.",
             "image_name": "coding-ninjas.png"
         },
-        "5": {
+        "6": {
             "name": "Open Source",
             "role": "Contributor",
             "period": "December, 2020 - Present",
@@ -124,42 +131,54 @@
     },
     "projects": {
         "1": {
+            "name": "Regalia '22 Backend",
+            "tech_stack_used": "FastAPI and MongoDB (using Python)",
+            "description": "Backend of Regalia '22, RCCIIT's cultural fest. Handled total entries for 1.2K+ attendees on both the event days each. Also handled on-spot registrations (including sending passes through email using MAILGUN API) and free entries, without encountering a single production bug.",
+            "general_or_github_link": "https://github.com/danger-ahead/regalia-2022-backend"
+        },
+        "2": {
+            "name": "TechTrix '22 Backend",
+            "tech_stack_used": "FastAPI and MongoDB (using Python)",
+            "description": "Made the backend of TechTrix '22, RCCIIT's tech fest. Handled 435+ participants, 60+ coordinators, and 560+ event registrations, without encountering a single production bug.",
+            "general_or_github_link": "https://github.com/danger-ahead/techtrix22-backend"
+        },
+        "3": {
             "name": "Calculator",
             "tech_stack_used": "Flutter",
             "description": "Calculator app based on Soft UI (neumorphism), having simple and advanced modes. Also has a history section to save previously performed operations (using FLUTTER SQLITE). Supports 3 theme modes - system default, light and dark. State management approach used - RIVERPOD. PUBLISHED ON F-DROID.",
             "general_or_github_link": "https://github.com/belelaritra/Neumorphic_Calculator"
         },
-        "2": {
+        "4": {
             "name": "flutter_dev_folio",
             "tech_stack_used": "Flutter",
             "description": "Minimal, Beautiful and responsive portfolio site template.",
             "general_or_github_link": "https://github.com/danger-ahead/flutter_dev_folio"
         },
-        "3": {
+        "5": {
             "name": "roBOT - Discord bot",
             "tech_stack_used": "Python, MongoDB, REST APIs",
             "description": "Bot with administrative commands (for kick, ban, mute, etc) and other fun commands (for memes, movies, jokes, etc).",
             "general_or_github_link": "https://github.com/danger-ahead/roBOT"
         },
-        "4": {
+        "6": {
             "name": "cinephilic",
             "tech_stack_used": "HTML, CS, JS",
             "description": "A chrome extension for showing the current trending movies in new tab.",
             "general_or_github_link": "https://github.com/quasar-rcciit/cinephilic"
         },
-        "5": {
+        "7": {
             "name": "Dictionary",
             "tech_stack_used": "Flutter, SQLite, REST APIs",
             "description": "Multi-language dictionary app with support for audio pronunciation (English only).",
             "general_or_github_link": "https://github.com/danger-ahead/flutter_dictionary"
         },
-        "6":{
+        "8":{
             "name": "Note",
             "tech_stack_used": "JAVA, MySQL",
             "description": "Simple terminal based Note Taking Application.",
             "general_or_github_link": "https://github.com/danger-ahead/Note"
         },
-        "7":{
+        "9":{
             "name": "Enigma-tic-cryption",
             "tech_stack_used": "C++",
             "description": "Follows the exact encryption method used by the enigma. Has multiple modes for setting different rotors.",
