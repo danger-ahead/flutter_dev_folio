@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'app.dart';
 import 'src/configure_web.dart';
 import 'src/json_service.dart';

@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 import '../src/home/about.dart';
+import '../src/home/data.dart';
 import '../src/home/designation.dart';
 import '../src/home/introduction.dart';
 import '../src/home/my_name.dart';
 import '../src/home/resume.dart';
 import '../src/home/social_media_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.microtask(() {
+        SystemChrome.setApplicationSwitcherDescription(
+            ApplicationSwitcherDescription(
+          label: 'Meet ${name().split(' ').first}',
+          primaryColor: Colors.black.value,
+        ));
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
