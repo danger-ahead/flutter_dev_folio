@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom/text_style.dart';
+import '../custom/custom_text.dart';
 import '../html_open_link.dart';
 import 'data.dart';
 
@@ -24,7 +24,10 @@ class Resume extends StatelessWidget {
           visible: data != '',
           child: TextButton(
               onPressed: () => htmlOpenLink(data),
-              child: text('MY RESUME', 20, Theme.of(context).primaryColor)),
+              child: CustomText(
+                  text: 'MY RESUME',
+                  fontSize: 20,
+                  color: Theme.of(context).primaryColor)),
         ));
   }
 }

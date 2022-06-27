@@ -26,8 +26,6 @@ class Achievements extends StatelessWidget {
                 return Container(
                   padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, height * 0.05),
                   child: AchievementsCard(
-                    height: height * 0.75,
-                    width: width,
                     desc: data[i][0],
                     link: data[i][1],
                     isMobile: true,
@@ -50,8 +48,6 @@ class Achievements extends StatelessWidget {
                             : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
                       return AchievementsCard(
-                        height: height * 0.9,
-                        width: width,
                         desc: data[index + i * 3][0],
                         link: data[index + i * 3][1],
                         isMobile: false,

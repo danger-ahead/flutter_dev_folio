@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom/text_style.dart';
+import '../custom/custom_text.dart';
 import 'data.dart';
 
 class Designation extends StatelessWidget {
@@ -70,11 +70,12 @@ class _TextSwapControllerState extends State<TextSwapController> {
   @override
   Widget build(BuildContext context) {
     if (widget.data.length == i) i = 0;
-    return text(
-        widget.isMobile
+    return CustomText(
+        text: widget.isMobile
             ? widget.data[i++].replaceAll(' ', '\n')
             : widget.data[i++],
-        widget.isMobile ? 40 : 60,
-        Theme.of(context).primaryColorLight);
+        isTextAlignCenter: false,
+        fontSize: widget.isMobile ? 40 : 60,
+        color: Theme.of(context).primaryColorLight);
   }
 }

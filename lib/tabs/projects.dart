@@ -25,8 +25,6 @@ class Projects extends StatelessWidget {
                 return Container(
                   padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, height * 0.05),
                   child: ProjectsCard(
-                    height: height * 0.75,
-                    width: width,
                     title: data[i][0],
                     techStack: data[i][1],
                     desc: data[i][2],
@@ -51,8 +49,6 @@ class Projects extends StatelessWidget {
                             : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
                       return ProjectsCard(
-                        height: height,
-                        width: width,
                         title: data[index + i * 3][0],
                         techStack: data[index + i * 3][1],
                         desc: data[index + i * 3][2],

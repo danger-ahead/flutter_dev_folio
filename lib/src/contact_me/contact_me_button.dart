@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../tabs/contact_me.dart';
-import '../custom/text_style.dart';
+import '../custom/custom_text.dart';
 import '../education/data.dart';
 
 class ContactMeButton extends StatelessWidget {
@@ -12,7 +12,10 @@ class ContactMeButton extends StatelessWidget {
     return Visibility(
       visible: data.isNotEmpty,
       child: TextButton(
-        child: text('CONTACT ME', 20, Theme.of(context).primaryColor),
+        child: CustomText(
+            text: 'CONTACT ME',
+            fontSize: 20,
+            color: Theme.of(context).primaryColor),
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ContactMe()),

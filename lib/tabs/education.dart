@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../src/education/card_desktop.dart';
-import '../src/education/card_mobile.dart';
+import '../src/education/card.dart';
 import '../src/education/data.dart';
 import '../src/nav_bar/title_bar.dart';
 
@@ -28,9 +27,7 @@ class Education extends StatelessWidget {
                 (int i) => Padding(
                   padding: EdgeInsets.only(
                       left: 30.0, right: 30.0, bottom: height * 0.05),
-                  child: EducationMobileCard(
-                    height: height,
-                    width: width,
+                  child: EducationDesktop(
                     instiution: data[i][0],
                     location: data[i][1],
                     desc: data[i][3],
@@ -52,9 +49,7 @@ class Education extends StatelessWidget {
                       data.length,
                       (int i) => Padding(
                         padding: EdgeInsets.only(bottom: height * 0.025),
-                        child: EducationDesktopCard(
-                          height: height * 0.9,
-                          width: width,
+                        child: EducationDesktop(
                           instiution: data[i][0],
                           location: data[i][1],
                           desc: data[i][3],

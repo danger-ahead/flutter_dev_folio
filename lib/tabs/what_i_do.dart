@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../src/custom/text_style.dart';
+import '../src/custom/custom_text.dart';
 import '../src/nav_bar/title_bar.dart';
 import '../src/theme/config.dart';
 import '../src/whatIDo/data.dart';
@@ -31,8 +31,10 @@ class WhatIdo extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15, 10, 15, 20),
-                    child: text('⚡ I have a good proficiency in:', 15,
-                        Theme.of(context).primaryColorLight),
+                    child: CustomText(
+                        text: '⚡ I have a good proficiency in:',
+                        fontSize: 15,
+                        color: Theme.of(context).primaryColorLight),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -67,12 +69,12 @@ class WhatIdo extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15, 30, 15, 20),
-                    child: text(
-                        data[1].isNotEmpty
+                    child: CustomText(
+                        text: data[1].isNotEmpty
                             ? '⚡ Some languages & tools I use:'
                             : '',
-                        15,
-                        Theme.of(context).primaryColorLight),
+                        fontSize: 15,
+                        color: Theme.of(context).primaryColorLight),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15, 25, 15, 20),
@@ -109,8 +111,10 @@ class WhatIdo extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(70, 10, 70, 20),
-                    child: text('⚡ I have a good proficiency in:', 35,
-                        Theme.of(context).primaryColorLight),
+                    child: CustomText(
+                        text: '⚡ I have a good proficiency in:',
+                        fontSize: 35,
+                        color: Theme.of(context).primaryColorLight),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 25.0),
@@ -140,12 +144,12 @@ class WhatIdo extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(70, 30, 70, 20),
-                    child: text(
-                        data[1].isNotEmpty
+                    child: CustomText(
+                        text: data[1].isNotEmpty
                             ? '⚡ Some languages & tools I use:'
                             : '',
-                        35,
-                        Theme.of(context).primaryColorLight),
+                        fontSize: 35,
+                        color: Theme.of(context).primaryColorLight),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(

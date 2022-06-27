@@ -26,8 +26,6 @@ class Experience extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: 30.0, right: 30.0, bottom: height * 0.05),
                   child: ExperienceCard(
-                    height: height * 0.75,
-                    width: width,
                     image: data[i][4],
                     title: data[i][0],
                     role: data[i][1],
@@ -53,8 +51,6 @@ class Experience extends StatelessWidget {
                             : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
                       return ExperienceCard(
-                        height: height * 0.85,
-                        width: width,
                         image: data[index + i * 3][4],
                         title: data[index + i * 3][0],
                         role: data[index + i * 3][1],

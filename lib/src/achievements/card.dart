@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom/text_style.dart';
+import '../custom/custom_text.dart';
 import '../html_open_link.dart';
 import '../theme/config.dart';
 
@@ -9,12 +9,9 @@ class AchievementsCard extends StatefulWidget {
       {Key? key,
       required this.desc,
       required this.isMobile,
-      required this.height,
-      required this.width,
       required this.link})
       : super(key: key);
 
-  final double height, width;
   final String desc, link;
   final bool isMobile;
   @override
@@ -26,6 +23,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return AnimatedContainer(
       decoration: BoxDecoration(
         boxShadow: [
@@ -38,8 +37,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
       ),
       duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: isHover ? widget.height * 0.005 : widget.height * 0.01,
-          bottom: !isHover ? widget.height * 0.005 : widget.height * 0.01),
+          top: isHover ? height * 0.005 : height * 0.01,
+          bottom: !isHover ? height * 0.005 : height * 0.01),
       child: InkWell(
         onHover: (bool value) {
           setState(() {
@@ -50,13 +49,11 @@ class _AchievementsCardState extends State<AchievementsCard> {
         child: Container(
           alignment: Alignment.topCenter,
           padding: EdgeInsets.only(
-              top: widget.height * 0.04,
-              left: widget.width * 0.015,
-              right: widget.width * 0.015,
-              bottom: widget.height * 0.04),
-          width: !widget.isMobile ? widget.width * 0.28 : widget.width,
-          height:
-              !widget.isMobile ? widget.height * 0.35 : widget.height / 2.25,
+              top: height * 0.04,
+              left: width * 0.015,
+              right: width * 0.015,
+              bottom: height * 0.04),
+          width: !widget.isMobile ? width * 0.28 : width,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -74,7 +71,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
           ),
           child: Center(
               child: SingleChildScrollView(
-                  child: text(widget.desc, 18, Colors.white))),
+                  child: CustomText(
+                      text: widget.desc, fontSize: 18, color: Colors.white))),
         ),
       ),
     );

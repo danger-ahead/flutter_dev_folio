@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom/text_style.dart';
+import '../custom/custom_text.dart';
 
 class Progress extends StatefulWidget {
   const Progress(
@@ -58,12 +58,14 @@ class _ProgressState extends State<Progress>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text(widget.title, widget.sizeProficiencyName,
-                      Theme.of(context).primaryColorLight),
-                  text(
-                      '${percentage.toStringAsFixed(0)}%',
-                      widget.sizePercentage,
-                      Theme.of(context).primaryColorLight)
+                  CustomText(
+                      text: widget.title,
+                      fontSize: widget.sizeProficiencyName,
+                      color: Theme.of(context).primaryColorLight),
+                  CustomText(
+                      text: '${percentage.toStringAsFixed(0)}%',
+                      fontSize: widget.sizePercentage,
+                      color: Theme.of(context).primaryColorLight)
                 ],
               ),
             ),
