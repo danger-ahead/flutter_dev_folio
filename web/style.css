@@ -1,7 +1,12 @@
 body {
-    background-color: #171c28;
+	background: var(--bg);
+	background-color: #171c28;
+	color: var(--fg);
+	display: flex;
+	font: 1em/1.5 sans-serif;
+	height: 100vh;
+	overflow: hidden;
 }
-
 * {
 	border: 0;
 	box-sizing: border-box;
@@ -14,15 +19,7 @@ body {
 	--fg: #171c28;
 	font-size: calc(12px + (24 - 12)*(100vw - 320px)/(2560 - 320));
 }
-body {
-	background: var(--bg);
-	color: var(--fg);
-	display: flex;
-	font: 1em/1.5 sans-serif;
-	height: 100vh;
-	overflow: hidden;
-}
-.preloader, .box, .box__inner, .box__inner div  {
+.preloader, .box, .box__inner div  {
 	transform-style: preserve-3d;
 }
 .preloader {
@@ -31,7 +28,7 @@ body {
 	width: 12em;
 	height: 24em;
 }
-.box, .box__inner, .box__inner div, .line {
+.box, .box__inner div, .line {
 	position: absolute;
 }
 .box, .box__inner div, .line__inner  {
@@ -48,6 +45,10 @@ body {
 .box, .box__inner {
 	width: 100%;
 	height: 50%;
+	transform: rotateX(50deg);
+	transform-origin: 50% 25%;
+    	transform-style: preserve-3d;
+    	position: absolute;
 }
 .box {
 	animation-name: popOut;
@@ -62,10 +63,6 @@ body {
 .box__inner, .box__inner div  {
 	animation-delay: inherit;
 	animation-duration: inherit;
-}
-.box__inner {
-	transform: rotateX(50deg);
-	transform-origin: 50% 25%;
 }
 .box__inner div {
 	box-shadow: 0 0 0 0.2em var(--bg) inset;
