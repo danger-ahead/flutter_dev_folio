@@ -16,7 +16,7 @@ class Introduction extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Text(
         word,
-        textScaleFactor: textScaleFactor,
+        textScaler: TextScaler.linear(textScaleFactor),
         style: TextStyle(
           fontFamily: 'SourceCodePro',
           letterSpacing: 2,
